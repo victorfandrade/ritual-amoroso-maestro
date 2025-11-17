@@ -7,32 +7,52 @@ import { Sparkles } from "lucide-react";
 const questions = [
   {
     id: 1,
-    question: "Cuando tu vida amorosa se traba, ¿qué sensación aparece primero?",
+    question: "En los últimos días, ¿cuál de estas señales notaste en el vínculo?",
     options: [
-      "Repitiendo una historia anterior",
-      "Doy más de lo que recibo",
-      "Me vuelvo invisible cuando me gusta alguien",
-      "Atraigo a personas emocionalmente indisponibles",
+      "Un cambio repentino en su comportamiento sin motivo claro.",
+      "Una memoria fuerte que apareció \"de la nada\".",
+      "Sensación de que el vínculo se reactivó solo.",
+      "Energía pesada, confusa o inestable entre ustedes.",
     ],
   },
   {
     id: 2,
-    question: "En los últimos 30 días, ¿qué fue lo que más ocurrió contigo?",
+    question: "Cuando intentas entender lo que pasa, ¿qué te llama más la atención?",
     options: [
-      "Un alejamiento inesperado",
-      "Fallé en el momento decisivo",
-      "Alguien del pasado reapareció de forma confusa",
-      "Mi vida amorosa quedó totalmente parada",
+      "Parece que algo lo está jalando de vuelta.",
+      "Siento una interferencia que afectó el vínculo.",
+      "Hay un retorno silencioso moviéndose.",
+      "El ciclo no se cerró… y se está reabriendo.",
     ],
   },
   {
     id: 3,
-    question: "¿Qué pesa más en tu interior ahora?",
+    question: "¿Qué describe mejor el estado del Hilo ahora?",
     options: [
-      "Miedo a no ser elegida",
-      "Duda sobre lo que él siente",
-      "Sensación de no ser suficiente",
-      "Miedo a repetir el mismo error amoroso",
+      "Una reactivación inesperada.",
+      "Un corte vibracional que enfrío la conexión.",
+      "Oscilaciones constantes sin explicación.",
+      "Estancamiento total, energía detenida.",
+    ],
+  },
+  {
+    id: 4,
+    question: "En el fondo, ¿qué te afecta más de este movimiento?",
+    options: [
+      "Que el retorno me tome desprevenida.",
+      "Que el alejamiento se vuelva definitivo.",
+      "No saber qué siente realmente.",
+      "La ansiedad de no entender la energía.",
+    ],
+  },
+  {
+    id: 5,
+    question: "Cuando el movimiento se confirme, ¿qué deseas saber primero?",
+    options: [
+      "Quién reabrió el ciclo y por qué.",
+      "Si el bloqueo puede revertirse.",
+      "Qué parte del Hilo debes alinear.",
+      "Si el Ritual va a acelerar el movimiento.",
     ],
   },
 ];
@@ -87,29 +107,29 @@ const Quiz = () => {
           </p>
         </div>
 
-        <Card className="p-8 md:p-12 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up">
+        <Card className="p-4 sm:p-6 md:p-8 lg:p-12 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up">
           <div className="flex items-center justify-center mb-6">
             <Sparkles className="w-8 h-8 text-accent floating" />
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-serif text-center mb-8 text-foreground">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-serif text-center mb-6 sm:mb-8 text-foreground leading-relaxed px-2">
             {questions[currentQuestion].question}
           </h2>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {questions[currentQuestion].options.map((option, index) => (
               <button
                 key={index}
                 onClick={() => handleOptionSelect(option)}
-                className={`w-full p-4 text-left rounded-xl border-2 transition-all duration-300 ${
+                className={`w-full p-3 sm:p-4 text-left rounded-xl border-2 transition-all duration-300 ${
                   selectedOption === option
                     ? "border-primary bg-primary/10 mystical-glow shadow-lg scale-[1.02]"
                     : "border-border hover:border-primary/50 hover:bg-muted/50"
                 }`}
               >
-                <div className="flex items-center gap-3">
+                <div className="flex items-start gap-3">
                   <div
-                    className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
+                    className={`w-5 h-5 flex-shrink-0 mt-0.5 rounded-full border-2 flex items-center justify-center transition-all ${
                       selectedOption === option
                         ? "border-primary bg-primary"
                         : "border-muted-foreground"
@@ -119,7 +139,7 @@ const Quiz = () => {
                       <div className="w-2 h-2 rounded-full bg-primary-foreground" />
                     )}
                   </div>
-                  <span className="text-base md:text-lg">{option}</span>
+                  <span className="text-sm sm:text-base md:text-lg leading-relaxed break-words">{option}</span>
                 </div>
               </button>
             ))}
@@ -128,7 +148,7 @@ const Quiz = () => {
           <Button
             onClick={handleNext}
             disabled={!selectedOption}
-            className="w-full mt-8 h-12 text-lg font-medium gradient-mystical hover:opacity-90 transition-opacity disabled:opacity-50 mystical-glow"
+            className="w-full mt-6 sm:mt-8 h-11 sm:h-12 text-base sm:text-lg font-medium gradient-mystical hover:opacity-90 transition-opacity disabled:opacity-50 mystical-glow"
           >
             {currentQuestion < questions.length - 1 ? "Continuar" : "Ver mi Diagnóstico"}
           </Button>
