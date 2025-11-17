@@ -57,6 +57,15 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        mystical: {
+          glow: "hsl(var(--mystical-glow))",
+          light: "hsl(var(--ethereal-light))",
+          deep: "hsl(var(--deep-mystical))",
+        },
+      },
+      fontFamily: {
+        serif: ['Playfair Display', 'serif'],
+        sans: ['Inter', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
