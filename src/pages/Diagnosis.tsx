@@ -1,74 +1,141 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Sparkles, Star, CheckCircle2, Download, Shield, Clock, HelpCircle, ChevronDown } from "lucide-react";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Heart, Sparkles, Star } from "lucide-react";
 
 const Diagnosis = () => {
-  const [showDeliverables, setShowDeliverables] = useState(false);
-  const [showFAQ, setShowFAQ] = useState(false);
-
   const handleCheckout = () => {
     window.location.href = "https://cartpanda.com.br/";
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-muted/30 to-background relative overflow-hidden pb-32">
+    <div className="min-h-screen bg-gradient-to-b from-background via-muted/30 to-background relative overflow-hidden">
+      {/* Mystical background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-48 h-48 sm:w-64 sm:h-64 bg-primary/10 rounded-full blur-3xl floating" />
-        <div className="absolute bottom-20 right-10 w-64 h-64 sm:w-96 sm:h-96 bg-accent/10 rounded-full blur-3xl floating" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl floating" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl floating" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-mystical-glow/5 rounded-full blur-3xl floating" style={{ animationDelay: '2s' }} />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-3 sm:px-4 py-6 sm:py-12 md:py-16">
-        <div className="text-center mb-6 sm:mb-8 md:mb-12 fade-in-up">
-          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-accent floating" />
-            <Star className="w-6 h-6 sm:w-8 sm:h-8 text-primary floating" style={{ animationDelay: '0.5s' }} />
+      <div className="relative z-10 max-w-4xl mx-auto px-4 py-12 md:py-16">
+        {/* Header */}
+        <div className="text-center mb-12 fade-in-up">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Sparkles className="w-6 h-6 text-accent floating" />
+            <Heart className="w-8 h-8 text-primary floating" style={{ animationDelay: '0.5s' }} />
+            <Sparkles className="w-6 h-6 text-accent floating" style={{ animationDelay: '1s' }} />
           </div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif mb-3 sm:mb-4 text-gradient leading-tight px-2">
-            Tu Diagnóstico Amoroso: Hilo Pendiente Revelado
+          <h1 className="text-4xl md:text-5xl font-serif mb-4 text-gradient">
+            Tu Diagnóstico Amoroso Ha Sido Revelado
           </h1>
+          <p className="text-lg text-muted-foreground">
+            Descubre lo que el universo tiene preparado para ti
+          </p>
         </div>
 
-        <Card className="mb-6 sm:mb-8 overflow-hidden mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up">
+        {/* Video Section */}
+        <Card className="mb-12 overflow-hidden mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up">
           <div className="aspect-video w-full">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/mdiQdzkBpco" title="Diagnóstico Amoroso" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full" />
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/mdiQdzkBpco"
+              title="Diagnóstico Amoroso"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            />
           </div>
         </Card>
 
-        <Card className="p-4 sm:p-6 md:p-8 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up mb-6 sm:mb-8">
-          <div className="space-y-4 sm:space-y-6">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-serif text-foreground">Tu Hilo Pendiente</h2>
-            <div className="space-y-4 text-foreground/90 leading-relaxed text-sm sm:text-base">
-              <p>Lo que estás viviendo tiene un nombre: <span className="text-primary font-semibold">Hilo Pendiente</span>. Es un ciclo energético que nunca se cerró y ahora se está reabriendo.</p>
-              <div className="bg-muted/50 p-4 sm:p-6 rounded-lg border-l-4 border-primary">
-                <p className="font-medium text-primary mb-2">Lo que detecté:</p>
-                <p>Hay una parte del Hilo <span className="font-semibold">desalineada</span>, oscilando entre retorno y alejamiento.</p>
+        {/* Diagnosis Content */}
+        <Card className="p-8 md:p-12 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up mb-8">
+          <div className="prose prose-lg max-w-none">
+            <div className="flex items-center gap-3 mb-6">
+              <Star className="w-6 h-6 text-accent" />
+              <h2 className="text-2xl md:text-3xl font-serif text-foreground m-0">
+                Tu Ciclo de Conexión Interrumpida
+              </h2>
+            </div>
+
+            <div className="space-y-6 text-foreground/90 leading-relaxed">
+              <p className="text-lg">
+                Tu energía amorosa está atravesando lo que llamo <span className="text-primary font-semibold">Ciclo de Conexión Interrumpida</span>. 
+                No es que no estés lista para el amor... es que hay un bloqueo energético impidiendo que las conexiones verdaderas se completen.
+              </p>
+
+              <p>
+                Esto no comenzó hace 30 días. Viene de antes. Tal vez de años atrás. Y se manifestó de diferentes maneras: 
+                personas que desaparecieron sin explicación, relaciones que no prosperaron, ese miedo constante de no ser suficiente, 
+                o la sensación de dar más de lo que recibes.
+              </p>
+
+              <div className="bg-muted/50 p-6 rounded-lg border-l-4 border-primary my-6">
+                <p className="text-base font-medium text-primary mb-2">
+                  El patrón que detecté en tus respuestas:
+                </p>
+                <p className="m-0">
+                  Tu energía amorosa está <span className="font-semibold">fragmentada</span>. Parte de ella sigue vinculada 
+                  al pasado. Otra parte está proyectada en el miedo del futuro. Y solo una pequeña parte está realmente 
+                  disponible en el presente... que es donde el amor puede florecer.
+                </p>
               </div>
-              <p className="font-medium">El <span className="text-primary">Ritual de Apertura de Caminos Amorosos</span> alinea esa parte del Hilo en 3 Noches.</p>
+
+              <p>
+                Cuando tu energía está así, dividida, pasa algo muy específico: atraes personas que también están 
+                energéticamente divididas. Personas emocionalmente indisponibles. Conexiones confusas. Situaciones que nunca 
+                se definen del todo.
+              </p>
+
+              <p>
+                Y cuanto más intentas "resolver" estas situaciones con lógica, más frustrante se vuelve... porque este no es 
+                un problema lógico. <span className="text-accent font-semibold">Es un bloqueo energético</span>.
+              </p>
+
+              <div className="bg-accent/10 p-6 rounded-lg my-6 border border-accent/30">
+                <h3 className="text-xl font-serif text-accent mb-3">¿Por qué esto importa ahora?</h3>
+                <p className="m-0">
+                  Porque hay un momento específico en el ciclo lunar y astrológico donde estos bloqueos pueden ser 
+                  liberados de forma más profunda y permanente. Y ese momento está ocurriendo <span className="font-semibold">ahora</span>.
+                </p>
+              </div>
+
+              <p>
+                Es por eso que creé el <span className="text-primary font-semibold">Ritual de Apertura de Caminos Amorosos</span>: 
+                un proceso energético específicamente diseñado para reintegrar tu energía amorosa, liberar los vínculos del 
+                pasado que te mantienen atada, y abrir espacio para conexiones verdaderas y recíprocas.
+              </p>
+
+              <p className="text-lg font-medium text-primary">
+                No se trata de "manifestar" un amor ideal. Se trata de <span className="underline">limpiar el camino</span> para 
+                que el amor pueda llegar sin obstáculos. De realinear tu energía para atraer lo que mereces: conexiones claras, 
+                presentes y comprometidas.
+              </p>
+
+              <div className="bg-primary/10 p-6 rounded-lg my-6 border border-primary/30">
+                <p className="m-0 text-center text-lg">
+                  Este ritual está disponible para ti ahora, mientras la ventana energética está abierta.
+                </p>
+              </div>
             </div>
           </div>
         </Card>
 
-        <Card className="p-4 sm:p-6 mystical-glow backdrop-blur-sm bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20 fade-in-up mb-24">
-          <div className="flex items-start gap-3">
-            <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-primary flex-shrink-0" />
-            <div>
-              <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2">Garantía Emocional</h3>
-              <p className="text-xs sm:text-sm text-foreground/80">Si sigues el ritual completo y no notas señales en 7 días, devolvemos el 100%.</p>
-            </div>
-          </div>
-        </Card>
-      </div>
-
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-t border-primary/20 p-3 sm:p-4 shadow-2xl">
-        <div className="max-w-4xl mx-auto">
-          <Button onClick={handleCheckout} size="lg" className="w-full h-12 sm:h-14 text-base sm:text-lg font-semibold gradient-mystical hover:opacity-90 transition-opacity mystical-glow-intense">
-            <Sparkles className="w-5 h-5 mr-2" />
-            Liberar Ritual de 3 Noches
+        {/* CTA Button - Fixed after scroll */}
+        <div className="sticky bottom-6 z-20 fade-in-up">
+          <Button
+            onClick={handleCheckout}
+            size="lg"
+            className="w-full h-16 text-xl font-semibold gradient-mystical hover:opacity-90 transition-opacity mystical-glow-intense shadow-2xl"
+          >
+            <Sparkles className="w-6 h-6 mr-2" />
+            Liberar Ritual de Apertura de Caminos Amorosos
+            <Sparkles className="w-6 h-6 ml-2" />
           </Button>
-          <p className="text-xs text-center text-muted-foreground mt-2">Acceso inmediato · PDF + audios</p>
         </div>
+
+        {/* Decorative elements */}
+        <div className="absolute top-32 right-8 w-24 h-24 border-2 border-primary/20 rounded-full floating" />
+        <div className="absolute bottom-32 left-8 w-32 h-32 border border-accent/20 rounded-full floating" style={{ animationDelay: '1s' }} />
       </div>
     </div>
   );
