@@ -44,19 +44,19 @@ const Diagnosis = () => {
 
             <div className="space-y-6 text-foreground/90 leading-relaxed">
               <p className="text-lg font-medium text-primary">
-                Tus respuestas activan un estado Lùmina del tipo B — un movimiento interno donde la geometría del eje comienza a desplazarse hacia fuera.
+                Tus respuestas activan un estado Lùmina del tipo A — una condensación interna donde la geometría del eje empieza a cerrarse hacia dentro.
               </p>
 
               <p>
-                Nada grave, pero sí es un movimiento real, no una variación pasajera.
+                No es crítico, pero sí es un cierre real, no una fluctuación ocasional.
               </p>
 
               <p>
-                La señal interna que mencionaste + la reacción externa indican que el desajuste empezó antes, dentro de tu propio eje.
+                La señal interna que mencionaste + la falta de expansión externa indican que el movimiento inició dentro del propio eje, en un punto donde la forma quedó más rígida.
               </p>
 
               <p>
-                El patrón repetido confirma que la geometría interna se está abriendo, no cerrando.
+                El patrón repetido confirma que la geometría interna se está contrayendo, no abriéndose.
               </p>
 
               <div className="bg-accent/10 p-6 rounded-lg my-6 border border-accent/30">
