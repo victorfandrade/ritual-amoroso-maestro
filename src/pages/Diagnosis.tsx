@@ -21,14 +21,14 @@ const Diagnosis = () => {
         <div className="text-center mb-12 fade-in-up">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Sparkles className="w-6 h-6 text-accent floating" />
-            <Heart className="w-8 h-8 text-primary floating" style={{ animationDelay: '0.5s' }} />
+            <Star className="w-8 h-8 text-primary floating" style={{ animationDelay: '0.5s' }} />
             <Sparkles className="w-6 h-6 text-accent floating" style={{ animationDelay: '1s' }} />
           </div>
           <h1 className="text-4xl md:text-5xl font-serif mb-4 text-gradient">
-            Tu Diagnóstico Amoroso Ha Sido Revelado
+            Tu Estado Lùmina Ha Sido Revelado
           </h1>
           <p className="text-lg text-muted-foreground">
-            Descubre lo que el universo tiene preparado para ti
+            La geometría interna de tu eje se está mostrando
           </p>
         </div>
 
@@ -53,67 +53,48 @@ const Diagnosis = () => {
             <div className="flex items-center gap-3 mb-6">
               <Star className="w-6 h-6 text-accent" />
               <h2 className="text-2xl md:text-3xl font-serif text-foreground m-0">
-                Tu Ciclo de Conexión Interrumpida
+                Tu Lectura Lùmina
               </h2>
             </div>
 
             <div className="space-y-6 text-foreground/90 leading-relaxed">
-              <p className="text-lg">
-                Tu energía amorosa está atravesando lo que llamo <span className="text-primary font-semibold">Ciclo de Conexión Interrumpida</span>. 
-                No es que no estés lista para el amor... es que hay un bloqueo energético impidiendo que las conexiones verdaderas se completen.
+              <p className="text-lg font-medium text-primary">
+                Tus respuestas activan un estado Lùmina del tipo B — un movimiento interno donde la geometría del eje comienza a desplazarse hacia fuera.
               </p>
 
               <p>
-                Esto no comenzó hace 30 días. Viene de antes. Tal vez de años atrás. Y se manifestó de diferentes maneras: 
-                personas que desaparecieron sin explicación, relaciones que no prosperaron, ese miedo constante de no ser suficiente, 
-                o la sensación de dar más de lo que recibes.
-              </p>
-
-              <div className="bg-muted/50 p-6 rounded-lg border-l-4 border-primary my-6">
-                <p className="text-base font-medium text-primary mb-2">
-                  El patrón que detecté en tus respuestas:
-                </p>
-                <p className="m-0">
-                  Tu energía amorosa está <span className="font-semibold">fragmentada</span>. Parte de ella sigue vinculada 
-                  al pasado. Otra parte está proyectada en el miedo del futuro. Y solo una pequeña parte está realmente 
-                  disponible en el presente... que es donde el amor puede florecer.
-                </p>
-              </div>
-
-              <p>
-                Cuando tu energía está así, dividida, pasa algo muy específico: atraes personas que también están 
-                energéticamente divididas. Personas emocionalmente indisponibles. Conexiones confusas. Situaciones que nunca 
-                se definen del todo.
+                Nada grave, pero sí es un movimiento real, no una variación pasajera.
               </p>
 
               <p>
-                Y cuanto más intentas "resolver" estas situaciones con lógica, más frustrante se vuelve... porque este no es 
-                un problema lógico. <span className="text-accent font-semibold">Es un bloqueo energético</span>.
+                La señal interna que mencionaste + la reacción externa indican que el desajuste empezó antes, dentro de tu propio eje.
+              </p>
+
+              <p>
+                El patrón repetido confirma que la geometría interna se está abriendo, no cerrando.
               </p>
 
               <div className="bg-accent/10 p-6 rounded-lg my-6 border border-accent/30">
-                <h3 className="text-xl font-serif text-accent mb-3">¿Por qué esto importa ahora?</h3>
-                <p className="m-0">
-                  Porque hay un momento específico en el ciclo lunar y astrológico donde estos bloqueos pueden ser 
-                  liberados de forma más profunda y permanente. Y ese momento está ocurriendo <span className="font-semibold">ahora</span>.
-                </p>
+                <h3 className="text-xl font-serif text-accent mb-3">En Lùmina explicamos que:</h3>
+                <ul className="space-y-2 m-0">
+                  <li>El símbolo revela la forma exacta que tu estado adoptó hoy.</li>
+                  <li>Esa forma se expande o se contrae según lo que hagas en las próximas horas.</li>
+                </ul>
               </div>
 
               <p>
-                Es por eso que creé el <span className="text-primary font-semibold">Ritual de Apertura de Caminos Amorosos</span>: 
-                un proceso energético específicamente diseñado para reintegrar tu energía amorosa, liberar los vínculos del 
-                pasado que te mantienen atada, y abrir espacio para conexiones verdaderas y recíprocas.
-              </p>
-
-              <p className="text-lg font-medium text-primary">
-                No se trata de "manifestar" un amor ideal. Se trata de <span className="underline">limpiar el camino</span> para 
-                que el amor pueda llegar sin obstáculos. De realinear tu energía para atraer lo que mereces: conexiones claras, 
-                presentes y comprometidas.
+                Por eso el Ritual Lùmina-7 existe: para recentrar esa geometría antes de que el movimiento interno se amplifique.
               </p>
 
               <div className="bg-primary/10 p-6 rounded-lg my-6 border border-primary/30">
-                <p className="m-0 text-center text-lg">
-                  Este ritual está disponible para ti ahora, mientras la ventana energética está abierta.
+                <h3 className="text-xl font-serif text-primary mb-3">El Ritual Lùmina-7 usa:</h3>
+                <ul className="space-y-2 m-0">
+                  <li>Tu símbolo único</li>
+                  <li>Un audio guiado de 7 minutos</li>
+                  <li>Una visualización breve que ayuda a recentrar el eje</li>
+                </ul>
+                <p className="mt-4 mb-0 text-center">
+                  Es una micro-intervención simbólica, rápida y pensada para ciclos como el tuyo.
                 </p>
               </div>
             </div>
@@ -128,7 +109,7 @@ const Diagnosis = () => {
             className="w-full h-16 text-xl font-semibold gradient-mystical hover:opacity-90 transition-opacity mystical-glow-intense shadow-2xl"
           >
             <Sparkles className="w-6 h-6 mr-2" />
-            Liberar Ritual de Apertura de Caminos Amorosos
+            Acceder al Ritual Ahora
             <Sparkles className="w-6 h-6 ml-2" />
           </Button>
         </div>
