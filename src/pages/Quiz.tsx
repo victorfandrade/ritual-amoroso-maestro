@@ -76,8 +76,8 @@ const Quiz = () => {
         setCurrentQuestion(currentQuestion + 1);
         setSelectedOption(null);
       } else {
-        // Quiz completed, navigate to diagnosis
-        navigate("/diagnosis");
+        // Quiz completed, navigate to loading
+        navigate("/loading");
       }
     }
   };

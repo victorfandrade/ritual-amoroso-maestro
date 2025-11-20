@@ -32,21 +32,6 @@ const Diagnosis = () => {
           </p>
         </div>
 
-        {/* Video Section */}
-        <Card className="mb-12 overflow-hidden mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up">
-          <div className="aspect-video w-full">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/mdiQdzkBpco"
-              title="Diagnóstico Amoroso"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-            />
-          </div>
-        </Card>
-
         {/* Diagnosis Content */}
         <Card className="p-8 md:p-12 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up mb-8">
           <div className="prose prose-lg max-w-none">
