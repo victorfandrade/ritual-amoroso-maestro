@@ -7,52 +7,52 @@ import { Sparkles } from "lucide-react";
 const questions = [
   {
     id: 1,
-    question: "En los últimos días, ¿cuál de estas señales notaste en el vínculo?",
+    question: "En las últimas 24h, ¿qué señal interna apareció primero?",
     options: [
-      "Un cambio repentino en su comportamiento sin motivo claro.",
-      "Una memoria fuerte que apareció \"de la nada\".",
-      "Sensación de que el vínculo se reactivó solo.",
-      "Energía pesada, confusa o inestable entre ustedes.",
+      "Una presión sutil por dentro",
+      "Una distracción extraña",
+      "Un movimiento emocional breve",
+      "Un silencio interno que no supe leer",
     ],
   },
   {
     id: 2,
-    question: "Cuando intentas entender lo que pasa, ¿qué te llama más la atención?",
+    question: "¿Cuándo notaste el desajuste del eje?",
     options: [
-      "Parece que algo lo está jalando de vuelta.",
-      "Siento una interferencia que afectó el vínculo.",
-      "Hay un retorno silencioso moviéndose.",
-      "El ciclo no se cerró… y se está reabriendo.",
+      "Al despertar",
+      "En medio de una interacción",
+      "Después de un cambio de emoción",
+      "No sé… solo sentí un desplazamiento leve",
     ],
   },
   {
     id: 3,
-    question: "¿Qué describe mejor el estado del Hilo ahora?",
+    question: "¿Qué patrón se repitió al menos una vez hoy?",
     options: [
-      "Una reactivación inesperada.",
-      "Un corte vibracional que enfrío la conexión.",
-      "Oscilaciones constantes sin explicación.",
-      "Estancamiento total, energía detenida.",
+      "Un tirón hacia dentro",
+      "Un vacío o peso corporal",
+      "Una micro-dispersión mental",
+      "Algo cambió en el ambiente sin razón clara",
     ],
   },
   {
     id: 4,
-    question: "En el fondo, ¿qué te afecta más de este movimiento?",
+    question: "¿Qué eco externo acompañó esa señal?",
     options: [
-      "Que el retorno me tome desprevenida.",
-      "Que el alejamiento se vuelva definitivo.",
-      "No saber qué siente realmente.",
-      "La ansiedad de no entender la energía.",
+      "Una mirada evitada",
+      "Cambio repentino de tono en alguien",
+      "Densidad leve al entrar a un lugar",
+      "Nada concreto… solo una variación en el ambiente",
     ],
   },
   {
     id: 5,
-    question: "Cuando el movimiento se confirme, ¿qué deseas saber primero?",
+    question: "Si ese movimiento se repite, ¿qué podría intensificarse?",
     options: [
-      "Quién reabrió el ciclo y por qué.",
-      "Si el bloqueo puede revertirse.",
-      "Qué parte del Hilo debes alinear.",
-      "Si el Ritual va a acelerar el movimiento.",
+      "Pequeña inestabilidad emocional",
+      "Confusión al despertar",
+      "Oscilación interna sin causa",
+      "Caída vibracional en tu conexión con alguien",
     ],
   },
 ];
@@ -150,7 +150,7 @@ const Quiz = () => {
             disabled={!selectedOption}
             className="w-full mt-4 sm:mt-6 md:mt-8 h-10 sm:h-11 md:h-12 text-sm sm:text-base md:text-lg font-medium gradient-mystical hover:opacity-90 transition-opacity disabled:opacity-50 mystical-glow"
           >
-            {currentQuestion < questions.length - 1 ? "Continuar" : "Ver mi Diagnóstico"}
+            {currentQuestion < questions.length - 1 ? "Continuar" : "Ver mi Lectura"}
           </Button>
         </Card>
 

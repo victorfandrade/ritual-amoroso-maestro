@@ -27,30 +27,37 @@ const Index = () => {
 
           {/* Main Heading */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif mb-4 sm:mb-6 leading-tight px-2">
-            <span className="text-gradient">Ritual de Apertura</span>
+            <span className="text-gradient">Revela la geometría interna</span>
             <br />
-            <span className="text-foreground">de Caminos Amorosos</span>
+            <span className="text-foreground">de tu estado en solo 7 minutos.</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2">
-            Descubre qué está bloqueando tus conexiones amorosas y cómo el universo te guía hacia el amor verdadero
+            El Ritual Lùmina-7 usa un símbolo único + un audio guiado para recentrar tu eje interno.
           </p>
 
-          {/* Value propositions */}
+          <p className="text-sm sm:text-base text-accent/80 mt-4 px-2 italic">
+            Tu símbolo está siendo preparado…
+          </p>
+
+          {/* How it works - 3 steps */}
           <div className="grid sm:grid-cols-3 gap-4 sm:gap-6 my-8 sm:my-12 max-w-3xl mx-auto px-2">
             {[
               {
-                icon: Heart,
-                text: "Identifica tu patrón energético amoroso",
+                icon: Star,
+                number: "1",
+                text: "Responde 5 preguntas simples.",
               },
               {
                 icon: Sparkles,
-                text: "Libera bloqueos del pasado",
+                number: "2",
+                text: "Leemos tu estado Lùmina del día.",
               },
               {
-                icon: Star,
-                text: "Abre camino a conexiones verdaderas",
+                icon: Heart,
+                number: "3",
+                text: "Recibes tu símbolo + el audio de 7 minutos.",
               },
             ].map((item, index) => (
               <div
@@ -63,6 +70,15 @@ const Index = () => {
             ))}
           </div>
 
+          {/* Quick experience section */}
+          <div className="max-w-2xl mx-auto px-2 mb-8">
+            <div className="p-4 sm:p-6 rounded-xl bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20">
+              <p className="text-sm sm:text-base text-foreground/90 leading-relaxed">
+                Una práctica simbólica breve que te ayuda a recuperar foco interno sin técnicas complicadas.
+              </p>
+            </div>
+          </div>
+
           {/* CTA Button */}
           <div className="pt-6 sm:pt-8 px-2">
             <Button
@@ -71,23 +87,9 @@ const Index = () => {
               className="h-12 sm:h-14 md:h-16 px-6 sm:px-8 md:px-12 text-base sm:text-lg md:text-xl font-semibold gradient-mystical hover:opacity-90 transition-opacity mystical-glow-intense shadow-2xl w-full sm:w-auto"
             >
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-2" />
-              <span className="leading-tight">Descubrir Mi Diagnóstico Ahora</span>
+              <span className="leading-tight">Iniciar el Ritual</span>
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2" />
             </Button>
-            <p className="text-xs sm:text-sm text-muted-foreground mt-3 sm:mt-4 px-2">
-              ✨ Solo toma 2 minutos · Completamente personalizado
-            </p>
-          </div>
-
-          {/* Social proof / mystical element */}
-          <div className="pt-8 sm:pt-12 max-w-2xl mx-auto px-2">
-            <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20">
-              <p className="text-sm sm:text-base text-foreground/80 italic leading-relaxed">
-                "Este no es un test común. Es una lectura energética de tu momento amoroso actual, 
-                diseñada para revelar exactamente qué está interrumpiendo tus conexiones."
-              </p>
-              <p className="text-accent font-semibold mt-2 sm:mt-3 text-sm sm:text-base">— Método del Destino Vincular</p>
-            </div>
           </div>
         </div>
 
