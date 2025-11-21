@@ -38,7 +38,7 @@ const Index = () => {
           </p>
 
           <p className="text-sm sm:text-base text-accent/80 mt-4 px-2 italic">
-            Tu símbolo está siendo preparado…
+            Tu símbolo está variando agora. Solo podemos leer la forma que adoptó hoy.
           </p>
 
           {/* How it works - 3 steps */}
