@@ -35,12 +35,12 @@ const Diagnosis = () => {
         {/* Main Content */}
         <Card className="p-8 md:p-12 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up mb-8">
           <div className="prose prose-lg max-w-none">
-            {/* 1. DIAGNÓSTICO */}
+            {/* Lectura de Tu Movimiento Interno */}
             <div className="space-y-6 text-foreground/90 leading-relaxed mb-12">
               <div className="flex items-center gap-3 mb-6">
                 <Star className="w-6 h-6 text-accent" />
                 <h2 className="text-2xl md:text-3xl font-serif text-foreground m-0">
-                  1. DIAGNÓSTICO
+                  Lectura de Tu Movimiento Interno
                 </h2>
               </div>
 
@@ -81,12 +81,12 @@ const Diagnosis = () => {
               </p>
             </div>
 
-            {/* 2. EXPLICACIÓN RITUALÍSTICA */}
+            {/* Por Qué Tu Símbolo Importa Hoy */}
             <div className="space-y-6 text-foreground/90 leading-relaxed mb-12">
               <div className="flex items-center gap-3 mb-6">
                 <Sparkles className="w-6 h-6 text-primary" />
                 <h2 className="text-2xl md:text-3xl font-serif text-foreground m-0">
-                  2. EXPLICACIÓN RITUALÍSTICA
+                  Por Qué Tu Símbolo Importa Hoy
                 </h2>
               </div>
 
@@ -124,12 +124,12 @@ const Diagnosis = () => {
               </p>
             </div>
 
-            {/* 3. PITCH DEL CORE */}
+            {/* Lo Que Hace el Ritual Lùmina-7 por Ti */}
             <div className="space-y-6 text-foreground/90 leading-relaxed mb-8">
               <div className="flex items-center gap-3 mb-6">
                 <Heart className="w-6 h-6 text-accent" />
                 <h2 className="text-2xl md:text-3xl font-serif text-foreground m-0">
-                  3. PITCH DEL CORE
+                  Lo Que Hace el Ritual Lùmina-7 por Ti
                 </h2>
               </div>
 
@@ -207,11 +207,12 @@ const Diagnosis = () => {
           <Button
             onClick={handleCheckout}
             size="lg"
-            className="w-full h-16 text-xl font-semibold gradient-mystical hover:opacity-90 transition-opacity mystical-glow-intense shadow-2xl"
+            className="group w-full h-16 text-xl font-semibold gradient-mystical hover:scale-105 transition-all duration-300 mystical-glow-intense shadow-2xl relative overflow-hidden"
           >
-            <Sparkles className="w-6 h-6 mr-2" />
-            Activar Lùmina-7 Ahora
-            <Sparkles className="w-6 h-6 ml-2" />
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+            <Sparkles className="w-6 h-6 mr-2 group-hover:rotate-12 transition-transform" />
+            <span className="relative">Activar Lùmina-7 Ahora</span>
+            <Sparkles className="w-6 h-6 ml-2 group-hover:-rotate-12 transition-transform" />
           </Button>
         </div>
 
