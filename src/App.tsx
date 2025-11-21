@@ -8,6 +8,7 @@ import Quiz from "./pages/Quiz";
 import Loading from "./pages/Loading";
 import Diagnosis from "./pages/Diagnosis";
 import Upsell from "./pages/Upsell";
+import Delivery from "./pages/Delivery";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/loading" element={<Loading />} />
           <Route path="/diagnosis" element={<Diagnosis />} />
           <Route path="/upsell" element={<Upsell />} />
+          <Route path="/delivery" element={<Delivery />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
