@@ -7,7 +7,6 @@ import Index from "./pages/Index";
 import Quiz from "./pages/Quiz";
 import Loading from "./pages/Loading";
 import Diagnosis from "./pages/Diagnosis";
-import Delivery from "./pages/Delivery";
 import Upsell from "./pages/Upsell";
 import NotFound from "./pages/NotFound";
 
@@ -24,7 +23,6 @@ const App = () => (
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/loading" element={<Loading />} />
           <Route path="/diagnosis" element={<Diagnosis />} />
-          <Route path="/delivery" element={<Delivery />} />
           <Route path="/upsell" element={<Upsell />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
