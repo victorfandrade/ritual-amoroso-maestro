@@ -25,61 +25,177 @@ const Diagnosis = () => {
             <Sparkles className="w-6 h-6 text-accent floating" style={{ animationDelay: '1s' }} />
           </div>
           <h1 className="text-4xl md:text-5xl font-serif mb-4 text-gradient">
-            Tu Estado Lùmina Ha Sido Revelado
+            Tu símbolo ya emergió. Tu eje mostró un movimiento real hoy.
           </h1>
           <p className="text-lg text-muted-foreground">
-            La geometría interna de tu eje se está mostrando
+            Lo que sentiste no fue casual: fue una señal interna que se activó sin que lo notaras.
           </p>
         </div>
 
-        {/* Diagnosis Content */}
+        {/* Main Content */}
         <Card className="p-8 md:p-12 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up mb-8">
           <div className="prose prose-lg max-w-none">
-            <div className="flex items-center gap-3 mb-6">
-              <Star className="w-6 h-6 text-accent" />
-              <h2 className="text-2xl md:text-3xl font-serif text-foreground m-0">
-                Tu Lectura Lùmina
-              </h2>
+            {/* 1. DIAGNÓSTICO */}
+            <div className="space-y-6 text-foreground/90 leading-relaxed mb-12">
+              <div className="flex items-center gap-3 mb-6">
+                <Star className="w-6 h-6 text-accent" />
+                <h2 className="text-2xl md:text-3xl font-serif text-foreground m-0">
+                  1. DIAGNÓSTICO
+                </h2>
+              </div>
+
+              <p className="text-lg font-medium text-primary">
+                Tus respuestas activan un Estado Lùmina del tipo B — un desplazamiento interno sutil que no aparece por accidente.
+              </p>
+
+              <p>
+                Cuando este tipo de movimiento surge, el eje no se rompe…
+              </p>
+
+              <p>
+                pero <strong>sí se abre</strong>, y por esa pequeña apertura tu energía empieza a dispersarse de formas que no siempre percibes.
+              </p>
+
+              <p>
+                Las sensaciones que mencionaste, junto con el eco externo, muestran algo claro:
+              </p>
+
+              <p className="font-medium">
+                el movimiento empezó antes de que lo notaras.
+              </p>
+
+              <p>
+                Y el patrón que se repitió confirma que esta no fue una variación pasajera:
+              </p>
+
+              <p className="font-medium">
+                fue una apertura en tu eje que quiere continuar si no la cierras.
+              </p>
+
+              <p className="italic text-accent">
+                Tus respuestas no describen la forma… pero sí revelan el tipo de movimiento que activó esa forma.
+              </p>
+
+              <p>
+                Por eso podemos leer el estado aunque tú no hayas sentido nada "intenso".
+              </p>
             </div>
 
-            <div className="space-y-6 text-foreground/90 leading-relaxed">
-              <p className="text-lg font-medium text-primary">
-                Tus respuestas activan un estado Lùmina del tipo A — una condensación interna donde la geometría del eje empieza a cerrarse hacia dentro.
-              </p>
-
-              <p>
-                No es crítico, pero sí es un cierre real, no una fluctuación ocasional.
-              </p>
-
-              <p>
-                La señal interna que mencionaste + la falta de expansión externa indican que el movimiento inició dentro del propio eje, en un punto donde la forma quedó más rígida.
-              </p>
-
-              <p>
-                El patrón repetido confirma que la geometría interna se está contrayendo, no abriéndose.
-              </p>
-
-              <div className="bg-accent/10 p-6 rounded-lg my-6 border border-accent/30">
-                <h3 className="text-xl font-serif text-accent mb-3">En Lùmina explicamos que:</h3>
-                <ul className="space-y-2 m-0">
-                  <li>El símbolo revela la forma exacta que tu estado adoptó hoy.</li>
-                  <li>Esa forma se expande o se contrae según lo que hagas en las próximas horas.</li>
-                </ul>
+            {/* 2. EXPLICACIÓN RITUALÍSTICA */}
+            <div className="space-y-6 text-foreground/90 leading-relaxed mb-12">
+              <div className="flex items-center gap-3 mb-6">
+                <Sparkles className="w-6 h-6 text-primary" />
+                <h2 className="text-2xl md:text-3xl font-serif text-foreground m-0">
+                  2. EXPLICACIÓN RITUALÍSTICA
+                </h2>
               </div>
 
               <p>
-                Por eso el Ritual Lùmina-7 existe: para recentrar esa geometría antes de que el movimiento interno se amplifique.
+                En Lùmina explicamos que:
               </p>
 
-              <div className="bg-primary/10 p-6 rounded-lg my-6 border border-primary/30">
-                <h3 className="text-xl font-serif text-primary mb-3">El Ritual Lùmina-7 usa:</h3>
+              <div className="bg-accent/10 p-6 rounded-lg border border-accent/30">
                 <ul className="space-y-2 m-0">
-                  <li>Tu símbolo único</li>
-                  <li>Un audio guiado de 7 minutos</li>
-                  <li>Una visualización breve que ayuda a recentrar el eje</li>
+                  <li>El <strong>símbolo</strong> es la geometría que tu estado adoptó <em>hoy</em>.</li>
+                  <li>Esa geometría respira: se abre, se contrae, se desplaza.</li>
+                  <li>Y cada persona genera una forma distinta, incluso si no cree en ello.</li>
                 </ul>
-                <p className="mt-4 mb-0 text-center">
-                  Es una micro-intervención simbólica, rápida y pensada para ciclos como el tuyo.
+              </div>
+
+              <p className="font-medium text-center text-lg">
+                No necesitas creer en geometrías.<br />
+                Solo experimentar la forma que tú mismo generaste.
+              </p>
+
+              <p>
+                El Ritual Lùmina-7 existe para ese momento preciso en el que:
+              </p>
+
+              <p className="font-medium">
+                la apertura todavía es leve… pero ya está moviendo tu eje hacia afuera.
+              </p>
+
+              <p>
+                Si actúas ahora, la forma se recentra.
+              </p>
+
+              <p>
+                Si esperas demasiado, <strong>se expande</strong>.
+              </p>
+            </div>
+
+            {/* 3. PITCH DEL CORE */}
+            <div className="space-y-6 text-foreground/90 leading-relaxed mb-8">
+              <div className="flex items-center gap-3 mb-6">
+                <Heart className="w-6 h-6 text-accent" />
+                <h2 className="text-2xl md:text-3xl font-serif text-foreground m-0">
+                  3. PITCH DEL CORE
+                </h2>
+              </div>
+
+              <p className="text-lg">
+                El Ritual Lùmina-7 no es "otro audio".
+              </p>
+
+              <p className="font-medium">
+                Es <strong>una intervención simbólica</strong> diseñada para cerrar exactamente la apertura que tus respuestas revelaron.
+              </p>
+
+              <p>
+                Utiliza tres fuerzas combinadas:
+              </p>
+
+              {/* Subsección 1 */}
+              <div className="bg-primary/10 p-6 rounded-lg border border-primary/30 my-6">
+                <h3 className="text-xl font-serif text-primary mb-3">1. Tu Símbolo Único</h3>
+                <p className="mb-2">
+                  La geometría precisa del estado que activaste hoy.
+                </p>
+                <p className="font-medium mb-0">
+                  Tu símbolo es la forma de hoy, no la de siempre.
+                </p>
+                <p className="mt-3 mb-0 italic">
+                  Si lo dejas para mañana, será otra forma… otro movimiento… otra lectura.
+                </p>
+              </div>
+
+              {/* Subsección 2 */}
+              <div className="bg-accent/10 p-6 rounded-lg border border-accent/30 my-6">
+                <h3 className="text-xl font-serif text-accent mb-3">2. El Audio Lùmina – 7 Minutos</h3>
+                <p className="mb-0">
+                  Un ritmo respiratorio calibrado para recolocar tu eje y cortar la dispersión.
+                </p>
+              </div>
+
+              {/* Subsección 3 */}
+              <div className="bg-primary/10 p-6 rounded-lg border border-primary/30 my-6">
+                <h3 className="text-xl font-serif text-primary mb-3">3. La Visualización Guiada</h3>
+                <p className="mb-0">
+                  Una micro-práctica que estabiliza la forma antes de que el movimiento interno crezca.
+                </p>
+              </div>
+
+              <p>
+                No necesitas preparación.
+              </p>
+
+              <p>
+                No necesitas creencias.
+              </p>
+
+              <p className="font-medium">
+                Solo necesitas <strong>cerrar la forma que se abrió hoy</strong>.
+              </p>
+
+              <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 p-8 rounded-lg my-8 border border-primary/40 text-center">
+                <p className="text-lg font-medium mb-2">
+                  Tu símbolo ya está activo.
+                </p>
+                <p className="text-lg font-medium mb-2">
+                  Tu eje ya se movió.
+                </p>
+                <p className="text-lg font-medium mb-0">
+                  La forma está viva… y espera que la re-alinees.
                 </p>
               </div>
             </div>
@@ -94,7 +210,7 @@ const Diagnosis = () => {
             className="w-full h-16 text-xl font-semibold gradient-mystical hover:opacity-90 transition-opacity mystical-glow-intense shadow-2xl"
           >
             <Sparkles className="w-6 h-6 mr-2" />
-            Acceder al Ritual Ahora
+            Activar Lùmina-7 Ahora
             <Sparkles className="w-6 h-6 ml-2" />
           </Button>
         </div>
