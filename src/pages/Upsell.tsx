@@ -37,13 +37,13 @@ const Upsell = () => {
         </div>
 
         {/* Main Content */}
-        <Card className="p-8 md:p-12 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up mb-8">
+        <div className="bg-card/95 backdrop-blur-sm p-8 md:p-12 rounded-lg border border-primary/20 mystical-glow fade-in-up mb-8">
           <div className="prose prose-lg max-w-none">
             {/* 1. Conexión con la compra anterior */}
             <div className="space-y-6 text-foreground/90 leading-relaxed mb-12">
               <div className="flex items-center gap-3 mb-6">
                 <CheckCircle className="w-6 h-6 text-accent" />
-                <h2 className="text-2xl md:text-3xl font-serif text-foreground m-0">
+                <h2 className="text-2xl md:text-3xl font-serif text-foreground">
                   Conexión con la compra anterior
                 </h2>
               </div>
@@ -70,7 +70,7 @@ const Upsell = () => {
             <div className="space-y-6 text-foreground/90 leading-relaxed mb-12">
               <div className="flex items-center gap-3 mb-6">
                 <Star className="w-6 h-6 text-primary" />
-                <h2 className="text-2xl md:text-3xl font-serif text-foreground m-0">
+                <h2 className="text-2xl md:text-3xl font-serif text-foreground">
                   Por qué existe el Lùmina 21
                 </h2>
               </div>
@@ -95,7 +95,7 @@ const Upsell = () => {
             <div className="space-y-6 text-foreground/90 leading-relaxed mb-12">
               <div className="flex items-center gap-3 mb-6">
                 <Sparkles className="w-6 h-6 text-accent" />
-                <h2 className="text-2xl md:text-3xl font-serif text-foreground m-0">
+                <h2 className="text-2xl md:text-3xl font-serif text-foreground">
                   Qué incluye exactamente
                 </h2>
               </div>
@@ -121,7 +121,7 @@ const Upsell = () => {
             <div className="space-y-6 text-foreground/90 leading-relaxed mb-12">
               <div className="flex items-center gap-3 mb-6">
                 <Heart className="w-6 h-6 text-accent" />
-                <h2 className="text-2xl md:text-3xl font-serif text-foreground m-0">
+                <h2 className="text-2xl md:text-3xl font-serif text-foreground">
                   Beneficios que el Lùmina-7 no cubre
                 </h2>
               </div>
@@ -146,7 +146,7 @@ const Upsell = () => {
             <div className="space-y-6 text-foreground/90 leading-relaxed mb-8">
               <div className="flex items-center gap-3 mb-6">
                 <Shield className="w-6 h-6 text-primary" />
-                <h2 className="text-2xl md:text-3xl font-serif text-foreground m-0">
+                <h2 className="text-2xl md:text-3xl font-serif text-foreground">
                   Oferta única para quienes acaban de cerrar el eje
                 </h2>
               </div>
@@ -173,7 +173,7 @@ const Upsell = () => {
               </p>
             </div>
           </div>
-        </Card>
+        </div>
 
         {/* CTA Principal */}
         <div className="space-y-6 fade-in-up">
