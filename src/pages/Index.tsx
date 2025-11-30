@@ -25,15 +25,13 @@ const Index = () => {
           <h1 className="text-4xl md:text-5xl font-serif mb-4 text-gradient">
             Revela La Geometría Interna De Tu Estado En Solo 7 Minutos.
           </h1>
+          <p className="text-lg md:text-xl text-muted-foreground italic mt-6">
+            Tu símbolo está variando ahora. Solo podemos leer la forma que adoptó hoy.
+          </p>
         </div>
 
         {/* Main Content */}
         <div className="mb-8 fade-in-up space-y-8">
-          <div className="bg-card/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20">
-            <p className="text-muted-foreground text-center italic">
-              Tu símbolo está variando ahora. Solo podemos leer la forma que adoptó hoy.
-            </p>
-          </div>
 
           {/* How it works - 3 steps */}
           <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
@@ -79,7 +77,7 @@ const Index = () => {
           <Button
             onClick={() => navigate("/quiz")}
             size="lg"
-            className="group w-full h-16 text-xl font-semibold gradient-mystical hover:scale-105 transition-all duration-300 mystical-glow-intense shadow-2xl relative overflow-hidden"
+            className="group w-full h-16 text-xl font-serif font-semibold gradient-mystical hover:scale-105 transition-all duration-300 mystical-glow-intense shadow-2xl relative overflow-hidden"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             <Sparkles className="w-6 h-6 mr-2 group-hover:rotate-12 transition-transform" />
