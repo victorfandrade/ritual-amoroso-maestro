@@ -1,5 +1,8 @@
-import { Download, Sparkles, Star } from "lucide-react";
+import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import MysticalBackground from "@/components/MysticalBackground";
+import PageHeader from "@/components/PageHeader";
+import DecorativeElements from "@/components/DecorativeElements";
 
 const UpsellDelivery = () => {
   const handleDownload = () => {
@@ -17,20 +20,10 @@ const UpsellDelivery = () => {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 py-12 md:py-16">
-        {/* Header */}
-        <div className="text-center mb-12 fade-in-up">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="w-6 h-6 text-accent floating" />
-            <Star className="w-8 h-8 text-primary floating" style={{ animationDelay: '0.5s' }} />
-            <Sparkles className="w-6 h-6 text-accent floating" style={{ animationDelay: '1s' }} />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-serif mb-4 text-gradient">
-            Lùmina-21: Tu Programa De Estabilización
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            21 días de guía continua para mantener tu eje interno alineado y estable.
-          </p>
-        </div>
+        <PageHeader 
+          title="Lùmina 21 – Estabilización Profunda"
+          subtitle="21 días de áudios de 3 minutos para profundizar la geometría que tu símbolo reveló."
+        />
 
         {/* Main Content */}
         <div className="space-y-8 fade-in-up">
@@ -121,9 +114,7 @@ const UpsellDelivery = () => {
           </div>
         </div>
 
-        {/* Decorative elements */}
-        <div className="absolute top-32 right-8 w-24 h-24 border-2 border-primary/20 rounded-full floating" />
-        <div className="absolute bottom-32 left-8 w-32 h-32 border border-accent/20 rounded-full floating" style={{ animationDelay: '1s' }} />
+        <DecorativeElements />
       </div>
     </div>
   );

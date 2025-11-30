@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Star } from "lucide-react";
+import { Sparkles } from "lucide-react";
+import MysticalBackground from "@/components/MysticalBackground";
+import PageHeader from "@/components/PageHeader";
+import DecorativeElements from "@/components/DecorativeElements";
 
 const Delivery = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -107,28 +110,13 @@ const Delivery = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-muted/30 to-background relative overflow-hidden">
-      {/* Mystical background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl floating" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl floating" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-mystical-glow/5 rounded-full blur-3xl floating" style={{ animationDelay: '2s' }} />
-      </div>
+      <MysticalBackground />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 py-12 md:py-16">
-        {/* Header */}
-        <div className="text-center mb-8 sm:mb-12 fade-in-up">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="w-6 h-6 text-accent floating" />
-            <Star className="w-8 h-8 text-primary floating" style={{ animationDelay: '0.5s' }} />
-            <Sparkles className="w-6 h-6 text-accent floating" style={{ animationDelay: '1s' }} />
-          </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif mb-3 sm:mb-4 text-gradient leading-tight">
-            Tu Ritual Lùmina-7 Está Listo
-          </h1>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Este es tu símbolo único del día. Úsalo ahora con el audio de 7 minutos.
-          </p>
-        </div>
+        <PageHeader 
+          title="Tu Ritual Lùmina-7 Está Listo"
+          subtitle="Este es tu símbolo único del día. Úsalo ahora con el audio de 7 minutos."
+        />
 
         {/* Symbol Display - Centered */}
         <div className="mb-8 sm:mb-12 fade-in-up flex justify-center">
@@ -307,9 +295,7 @@ const Delivery = () => {
           </div>
         </div>
 
-        {/* Decorative elements */}
-        <div className="absolute top-32 right-8 w-24 h-24 border-2 border-primary/20 rounded-full floating" />
-        <div className="absolute bottom-32 left-8 w-32 h-32 border border-accent/20 rounded-full floating" style={{ animationDelay: '1s' }} />
+        <DecorativeElements />
       </div>
     </div>
   );
