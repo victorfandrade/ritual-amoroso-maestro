@@ -76,7 +76,6 @@ const Quiz = () => {
         setCurrentQuestion(currentQuestion + 1);
         setSelectedOption(null);
       } else {
-        // Quiz completed, navigate to loading
         navigate("/loading");
       }
     }
@@ -94,6 +93,13 @@ const Quiz = () => {
       </div>
 
       <div className="w-full max-w-2xl relative z-10">
+        {/* Header */}
+        <div className="text-center mb-6 sm:mb-8 fade-in-up">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-gradient">
+            Lùmina-7
+          </h1>
+        </div>
+
         {/* Progress bar */}
         <div className="mb-4 sm:mb-6 md:mb-8 fade-in-up">
           <div className="h-2 bg-muted rounded-full overflow-hidden mystical-glow">
@@ -154,7 +160,7 @@ const Quiz = () => {
           </Button>
         </Card>
 
-        {/* Decorative mystical elements - hidden on small mobile */}
+        {/* Decorative mystical elements */}
         <div className="hidden sm:block absolute -top-4 -right-4 w-20 h-20 md:w-24 md:h-24 border-2 border-primary/20 rounded-full floating" style={{ animationDelay: '0.5s' }} />
         <div className="hidden sm:block absolute -bottom-4 -left-4 w-24 h-24 md:w-32 md:h-32 border border-accent/20 rounded-full floating" style={{ animationDelay: '1.5s' }} />
       </div>

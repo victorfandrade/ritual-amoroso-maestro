@@ -51,8 +51,8 @@ const Diagnosis = () => {
           <Card className="p-6 md:p-8 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up">
             <div className="flex items-center gap-3 mb-6">
               <Star className="w-6 h-6 text-accent" />
-              <h2 className="text-2xl md:text-3xl font-serif text-foreground">
-                Lectura del Movimiento Interno
+              <h2 className="text-2xl md:text-3xl font-serif text-gradient">
+                Lectura Del Movimiento Interno
               </h2>
             </div>
             <div className="space-y-4 text-foreground/90 leading-relaxed">
@@ -72,7 +72,7 @@ const Diagnosis = () => {
           <Card className="p-6 md:p-8 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up">
             <div className="flex items-center gap-3 mb-6">
               <Sparkles className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl md:text-3xl font-serif text-foreground">
+              <h2 className="text-2xl md:text-3xl font-serif text-gradient">
                 Por Qué Tu Símbolo Importa Hoy
               </h2>
             </div>
@@ -93,29 +93,29 @@ const Diagnosis = () => {
           <Card className="p-6 md:p-8 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up">
             <div className="flex items-center gap-3 mb-6">
               <Heart className="w-6 h-6 text-accent" />
-              <h2 className="text-2xl md:text-3xl font-serif text-foreground">
-                Lo Que Hace el Ritual Lùmina-7
+              <h2 className="text-2xl md:text-3xl font-serif text-gradient">
+                Lo Que Hace El Ritual Lùmina-7
               </h2>
             </div>
             <div className="space-y-4 text-foreground/90 leading-relaxed">
               <div className="bg-primary/10 p-5 rounded-lg border border-primary/30">
-                <p className="font-medium mb-2">Tu símbolo único</p>
+                <p className="font-medium mb-2 text-gradient">Tu Símbolo Único</p>
                 <p className="text-sm">La geometría precisa del estado que activaste hoy</p>
               </div>
-              <div className="bg-accent/10 p-5 rounded-lg border border-accent/30">
-                <p className="font-medium mb-2">Audio de 7 minutos calibrado</p>
+              <div className="bg-primary/10 p-5 rounded-lg border border-primary/30">
+                <p className="font-medium mb-2 text-gradient">Audio De 7 Minutos Calibrado</p>
                 <p className="text-sm">Recoloca tu eje y corta la dispersión</p>
               </div>
               <div className="bg-primary/10 p-5 rounded-lg border border-primary/30">
-                <p className="font-medium mb-2">Visualización guiada</p>
+                <p className="font-medium mb-2 text-gradient">Visualización Guiada</p>
                 <p className="text-sm">Cierra la apertura antes de que crezca</p>
               </div>
             </div>
           </Card>
         </div>
 
-        {/* CTA Button - Fixed after scroll */}
-        <div className="sticky bottom-6 z-20 fade-in-up">
+        {/* CTA Button */}
+        <div className="sticky bottom-6 z-20 fade-in-up mt-8">
           <Button
             onClick={handleCheckout}
             size="lg"
