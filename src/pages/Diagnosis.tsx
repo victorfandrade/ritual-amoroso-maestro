@@ -25,7 +25,7 @@ const Diagnosis = () => {
             <Sparkles className="w-6 h-6 text-accent floating" style={{ animationDelay: '1s' }} />
           </div>
           <h1 className="text-4xl md:text-5xl font-serif mb-4 text-gradient">
-            Tu símbolo ya emergió. Tu eje mostró un movimiento real hoy.
+            Tu Símbolo Ya Emergió. Tu Eje Mostró Un Movimiento Real Hoy.
           </h1>
           <p className="text-lg text-muted-foreground">
             Lo que sentiste no fue casual: fue una señal interna que se activó sin que lo notaras.
