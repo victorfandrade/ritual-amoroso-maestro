@@ -10,6 +10,8 @@ import Diagnosis from "./pages/Diagnosis";
 import Delivery from "./pages/Delivery";
 import OrderBump1 from "./pages/OrderBump1";
 import OrderBump2 from "./pages/OrderBump2";
+import UpsellDelivery from "./pages/UpsellDelivery";
+import DownsellDelivery from "./pages/DownsellDelivery";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +30,8 @@ const App = () => (
           <Route path="/delivery" element={<Delivery />} />
           <Route path="/order-bump-1" element={<OrderBump1 />} />
           <Route path="/order-bump-2" element={<OrderBump2 />} />
+          <Route path="/upsell-delivery" element={<UpsellDelivery />} />
+          <Route path="/downsell-delivery" element={<DownsellDelivery />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

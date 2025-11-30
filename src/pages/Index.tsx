@@ -23,52 +23,56 @@ const Index = () => {
             <Sparkles className="w-6 h-6 text-accent floating" style={{ animationDelay: '1s' }} />
           </div>
           <h1 className="text-4xl md:text-5xl font-serif mb-4 text-gradient">
-            Revela la geometría interna de tu estado en solo 7 minutos.
+            Revela La Geometría Interna De Tu Estado En Solo 7 Minutos.
           </h1>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed italic">
-            "Yo pensé que esto iba a ser otra cosa complicada… pero el Ritual Lùmina-7 fue tan simple que hice en menos de ocho minutos. Y lo que más me sorprendió es que sentí mi cabeza más clara al terminar. No sé cómo explicarlo, pero funciona." <span className="font-medium text-foreground">— Camila</span>
-          </p>
         </div>
 
         {/* Main Content */}
-        <div className="mb-8 fade-in-up">
-          <div className="bg-card/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 mb-6">
+        <div className="mb-8 fade-in-up space-y-8">
+          <div className="bg-card/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20">
             <p className="text-muted-foreground text-center italic">
               Tu símbolo está variando ahora. Solo podemos leer la forma que adoptó hoy.
             </p>
           </div>
 
           {/* How it works - 3 steps */}
-          <div className="grid sm:grid-cols-3 gap-4 sm:gap-6 mb-8">
-            <div className="text-center space-y-3 sm:space-y-4">
+          <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
+            <div className="bg-card/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 text-center space-y-4">
               <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/10 border-2 border-primary/30 mx-auto flex items-center justify-center mystical-glow">
                 <span className="text-2xl sm:text-3xl font-serif text-primary">1</span>
               </div>
               <div>
-                <p className="text-base sm:text-lg font-medium text-foreground">Responde 5 preguntas simples.</p>
+                <p className="text-base sm:text-lg font-medium text-foreground">Responde 5 Preguntas Simples.</p>
                 <p className="text-xs sm:text-sm text-muted-foreground mt-1">No hay respuestas incorrectas</p>
               </div>
             </div>
 
-            <div className="text-center space-y-3 sm:space-y-4">
+            <div className="bg-card/50 backdrop-blur-sm p-6 rounded-lg border border-accent/20 text-center space-y-4">
               <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-accent/10 border-2 border-accent/30 mx-auto flex items-center justify-center mystical-glow">
                 <span className="text-2xl sm:text-3xl font-serif text-accent">2</span>
               </div>
               <div>
-                <p className="text-base sm:text-lg font-medium text-foreground">Leemos tu estado Lùmina del día.</p>
+                <p className="text-base sm:text-lg font-medium text-foreground">Leemos Tu Estado Lùmina Del Día.</p>
                 <p className="text-xs sm:text-sm text-muted-foreground mt-1">Interpretación en tiempo real</p>
               </div>
             </div>
 
-            <div className="text-center space-y-3 sm:space-y-4">
+            <div className="bg-card/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 text-center space-y-4">
               <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/10 border-2 border-primary/30 mx-auto flex items-center justify-center mystical-glow">
                 <span className="text-2xl sm:text-3xl font-serif text-primary">3</span>
               </div>
               <div>
-                <p className="text-base sm:text-lg font-medium text-foreground">Recibes tu símbolo + el audio de 7 minutos.</p>
+                <p className="text-base sm:text-lg font-medium text-foreground">Recibes Tu Símbolo + El Audio De 7 Minutos.</p>
                 <p className="text-xs sm:text-sm text-muted-foreground mt-1">Entrega inmediata</p>
               </div>
             </div>
+          </div>
+
+          {/* Testimonial Section */}
+          <div className="bg-card/50 backdrop-blur-sm p-8 rounded-lg border border-primary/20">
+            <p className="text-base sm:text-lg text-muted-foreground text-center leading-relaxed italic">
+              "Yo pensé que esto iba a ser otra cosa complicada… pero el Ritual Lùmina-7 fue tan simple que hice en menos de ocho minutos. Y lo que más me sorprendió es que sentí mi cabeza más clara al terminar. No sé cómo explicarlo, pero funciona." <span className="font-medium text-foreground">— Camila</span>
+            </p>
           </div>
 
           {/* CTA Button */}
