@@ -25,10 +25,10 @@ const DownsellDelivery = () => {
             <Sparkles className="w-6 h-6 text-accent floating" style={{ animationDelay: '1s' }} />
           </div>
           <h1 className="text-4xl md:text-5xl font-serif mb-4 text-gradient">
-            Refuerzo Lùmina: Tu Guía De 7 Días
+            Lùmina 14 – Ritual De Reconexión Profunda
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Una semana de práctica intensiva para fortalecer tu conexión interna.
+            14 días de áudios de 2 minutos para estabilizar la geometría que tu símbolo reveló.
           </p>
         </div>
 
@@ -43,21 +43,21 @@ const DownsellDelivery = () => {
               
               <div className="space-y-3">
                 <h2 className="text-2xl md:text-3xl font-serif text-gradient">
-                  Tu Refuerzo De 7 Días Ya Está Listo
+                  Tu Ritual De 14 Días Ya Está Listo
                 </h2>
                 <p className="text-muted-foreground max-w-xl mx-auto">
-                  Descarga tu guía de refuerzo Lùmina y continúa fortaleciendo tu eje interno durante la próxima semana.
+                  El Lùmina-7 cierra el movimiento del día. El Lùmina-14 estabiliza la geometría que el símbolo reveló.
                 </p>
               </div>
 
               <Button
                 onClick={handleDownload}
                 size="lg"
-                className="group w-full sm:w-auto h-14 text-lg font-semibold gradient-mystical hover:scale-105 transition-all duration-300 mystical-glow-intense shadow-2xl relative overflow-hidden"
+                className="group w-full sm:w-auto h-14 text-lg font-serif font-semibold gradient-mystical hover:scale-105 transition-all duration-300 mystical-glow-intense shadow-2xl relative overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 <Download className="w-5 h-5 mr-2 relative" />
-                <span className="relative">Descargar Guía De Refuerzo</span>
+                <span className="relative">Descargar Lùmina 14</span>
               </Button>
             </div>
           </div>
@@ -65,7 +65,7 @@ const DownsellDelivery = () => {
           {/* What's Included Section */}
           <div className="bg-card/50 backdrop-blur-sm p-8 md:p-12 rounded-lg border border-primary/20">
             <h3 className="text-2xl md:text-3xl font-serif text-gradient text-center mb-8">
-              Qué Incluye El Refuerzo
+              Qué Incluye El Lùmina 14
             </h3>
             
             <div className="grid gap-6 md:grid-cols-3">
@@ -74,7 +74,7 @@ const DownsellDelivery = () => {
                   <span className="text-primary text-xl">◇</span>
                 </div>
                 <p className="text-foreground/90">
-                  7 Audios De Refuerzo Diario
+                  14 Áudios De 2 Minutos
                 </p>
               </div>
               
@@ -83,7 +83,7 @@ const DownsellDelivery = () => {
                   <span className="text-accent text-xl">◆</span>
                 </div>
                 <p className="text-foreground/90">
-                  Prácticas De Consolidación
+                  Rotina Simbólica Diária
                 </p>
               </div>
               
@@ -92,7 +92,7 @@ const DownsellDelivery = () => {
                   <span className="text-primary text-xl">◇</span>
                 </div>
                 <p className="text-foreground/90">
-                  Ejercicios De Estabilización
+                  Estabilización Geométrica
                 </p>
               </div>
             </div>
@@ -101,21 +101,24 @@ const DownsellDelivery = () => {
           {/* Instructions Section */}
           <div className="bg-card/50 backdrop-blur-sm p-8 md:p-12 rounded-lg border border-primary/20">
             <h3 className="text-2xl md:text-3xl font-serif text-gradient text-center mb-8">
-              Cómo Usar Tu Refuerzo
+              Cómo Usar Tu Ritual
             </h3>
             
             <div className="space-y-4 text-foreground/90 leading-relaxed max-w-2xl mx-auto">
-              <p>
-                <span className="font-medium text-primary">Día 1-3:</span> Reconexión con tu eje interno.
+              <p className="text-center text-lg mb-6 italic text-muted-foreground">
+                "Tu símbolo no es estático. Es un proceso. Y el Lùmina-14 es la fase donde la forma se estabiliza."
               </p>
               <p>
-                <span className="font-medium text-accent">Día 4-5:</span> Profundización de la estabilidad.
+                <span className="font-medium text-primary">Días 1-5:</span> Cierra el ciclo abierto por el diagnóstico.
               </p>
               <p>
-                <span className="font-medium text-primary">Día 6-7:</span> Integración y consolidación final.
+                <span className="font-medium text-accent">Días 6-10:</span> Impide que la geometría se abra nuevamente.
+              </p>
+              <p>
+                <span className="font-medium text-primary">Días 11-14:</span> Profundiza la lectura simbólica del estado.
               </p>
               <p className="text-muted-foreground italic pt-4">
-                Dedica al menos 10 minutos cada día a tu práctica. La regularidad en estos 7 días hará la diferencia.
+                Solo 2 minutos diarios. La constancia en estos 14 días estabiliza la forma que el símbolo reveló.
               </p>
             </div>
           </div>
