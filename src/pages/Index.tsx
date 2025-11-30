@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Heart, Sparkles, Star, Moon } from "lucide-react";
+import { Sparkles, Star } from "lucide-react";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -25,10 +25,9 @@ const Index = () => {
           <h1 className="text-4xl md:text-5xl font-serif mb-4 text-gradient">
             Revela la geometría interna de tu estado en solo 7 minutos.
           </h1>
-          <p className="text-lg text-muted-foreground">
-            El Ritual Lùmina-7 usa un símbolo único + un audio guiado para recentrar tu eje interno.
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed italic">
+            "Yo pensé que esto iba a ser otra cosa complicada… pero el Ritual Lùmina-7 fue tan simple que hice en menos de ocho minutos. Y lo que más me sorprendió es que sentí mi cabeza más clara al terminar. No sé cómo explicarlo, pero funciona." <span className="font-medium text-foreground">— Camila</span>
           </p>
-
         </div>
 
         {/* Main Content */}
@@ -40,39 +39,36 @@ const Index = () => {
           </div>
 
           {/* How it works - 3 steps */}
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            {[
-              {
-                icon: Star,
-                number: "1",
-                text: "Responde 5 preguntas simples.",
-              },
-              {
-                icon: Sparkles,
-                number: "2",
-                text: "Leemos tu estado Lùmina del día.",
-              },
-              {
-                icon: Heart,
-                number: "3",
-                text: "Recibes tu símbolo + el audio de 7 minutos.",
-              },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="p-6 rounded-xl bg-card/95 backdrop-blur-sm border border-primary/20 mystical-glow hover:scale-105 transition-transform"
-              >
-                <item.icon className="w-10 h-10 text-primary mx-auto mb-3 floating" />
-                <p className="text-foreground text-center">{item.text}</p>
+          <div className="grid sm:grid-cols-3 gap-4 sm:gap-6 mb-8">
+            <div className="text-center space-y-3 sm:space-y-4">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/10 border-2 border-primary/30 mx-auto flex items-center justify-center mystical-glow">
+                <span className="text-2xl sm:text-3xl font-serif text-primary">1</span>
               </div>
-            ))}
-          </div>
+              <div>
+                <p className="text-base sm:text-lg font-medium text-foreground">Responde 5 preguntas simples.</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">No hay respuestas incorrectas</p>
+              </div>
+            </div>
 
-          {/* Quick experience section */}
-          <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 p-6 rounded-lg border border-primary/20 mb-8">
-            <p className="text-foreground/90 text-center leading-relaxed">
-              Una práctica simbólica breve que te ayuda a recuperar foco interno sin técnicas complicadas.
-            </p>
+            <div className="text-center space-y-3 sm:space-y-4">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-accent/10 border-2 border-accent/30 mx-auto flex items-center justify-center mystical-glow">
+                <span className="text-2xl sm:text-3xl font-serif text-accent">2</span>
+              </div>
+              <div>
+                <p className="text-base sm:text-lg font-medium text-foreground">Leemos tu estado Lùmina del día.</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">Interpretación en tiempo real</p>
+              </div>
+            </div>
+
+            <div className="text-center space-y-3 sm:space-y-4">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/10 border-2 border-primary/30 mx-auto flex items-center justify-center mystical-glow">
+                <span className="text-2xl sm:text-3xl font-serif text-primary">3</span>
+              </div>
+              <div>
+                <p className="text-base sm:text-lg font-medium text-foreground">Recibes tu símbolo + el audio de 7 minutos.</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">Entrega inmediata</p>
+              </div>
+            </div>
           </div>
 
           {/* CTA Button */}

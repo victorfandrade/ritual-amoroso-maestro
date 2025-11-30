@@ -7,7 +7,6 @@ import Index from "./pages/Index";
 import Quiz from "./pages/Quiz";
 import Loading from "./pages/Loading";
 import Diagnosis from "./pages/Diagnosis";
-import Upsell from "./pages/Upsell";
 import Delivery from "./pages/Delivery";
 import OrderBump1 from "./pages/OrderBump1";
 import OrderBump2 from "./pages/OrderBump2";
@@ -26,7 +25,6 @@ const App = () => (
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/loading" element={<Loading />} />
           <Route path="/diagnosis" element={<Diagnosis />} />
-          <Route path="/upsell" element={<Upsell />} />
           <Route path="/delivery" element={<Delivery />} />
           <Route path="/order-bump-1" element={<OrderBump1 />} />
           <Route path="/order-bump-2" element={<OrderBump2 />} />
