@@ -1,5 +1,8 @@
 import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import MysticalBackground from "@/components/MysticalBackground";
+import PageHeader from "@/components/PageHeader";
+import DecorativeElements from "@/components/DecorativeElements";
 
 const OrderBump1 = () => {
   const handleDownload = () => {
@@ -7,29 +10,14 @@ const OrderBump1 = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-background to-mystical-deep/20 py-12 px-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Decorative top */}
-        <div className="flex justify-center mb-8">
-          <div className="w-16 h-16 rounded-full border-2 border-primary/30 flex items-center justify-center animate-pulse">
-            <div className="w-8 h-8 rounded-full bg-primary/20" />
-          </div>
-        </div>
+    <div className="min-h-screen bg-gradient-to-b from-background via-muted/30 to-background relative overflow-hidden">
+      <MysticalBackground />
 
-        {/* Header */}
-        <div className="text-center mb-12 fade-in-up">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-2 h-2 rounded-full bg-primary/50 floating" />
-            <div className="w-3 h-3 rounded-full bg-accent/50 floating" style={{ animationDelay: '0.5s' }} />
-            <div className="w-2 h-2 rounded-full bg-primary/50 floating" style={{ animationDelay: '1s' }} />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-serif mb-4 text-gradient">
-            Mapa Lùmina De Tendencias Emocionales
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Tu guía personal para comprender los patrones emocionales que se manifiestan en tu eje interno.
-          </p>
-        </div>
+      <div className="relative z-10 max-w-4xl mx-auto px-4 py-12 md:py-16">
+        <PageHeader 
+          title="Mapa Lùmina De Tendencias Emocionales"
+          subtitle="Tu guía personal para comprender los patrones emocionales que se manifiestan en tu eje interno."
+        />
 
         {/* Main content */}
         <div className="space-y-8 fade-in-up">
@@ -98,14 +86,7 @@ const OrderBump1 = () => {
           </div>
         </div>
 
-        {/* Decorative bottom */}
-        <div className="flex justify-center mt-8">
-          <div className="flex gap-2">
-            <div className="w-2 h-2 rounded-full bg-primary/30" />
-            <div className="w-2 h-2 rounded-full bg-primary/50" />
-            <div className="w-2 h-2 rounded-full bg-primary/30" />
-          </div>
-        </div>
+        <DecorativeElements />
       </div>
     </div>
   );

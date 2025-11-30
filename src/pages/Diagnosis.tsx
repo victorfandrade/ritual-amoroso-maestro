@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Heart, Sparkles, Star } from "lucide-react";
+import { Heart, Sparkles } from "lucide-react";
+import MysticalBackground from "@/components/MysticalBackground";
+import PageHeader from "@/components/PageHeader";
+import DecorativeElements from "@/components/DecorativeElements";
 
 const Diagnosis = () => {
   const handleCheckout = () => {
@@ -9,28 +12,13 @@ const Diagnosis = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-muted/30 to-background relative overflow-hidden">
-      {/* Mystical background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl floating" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl floating" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-mystical-glow/5 rounded-full blur-3xl floating" style={{ animationDelay: '2s' }} />
-      </div>
+      <MysticalBackground />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 py-12 md:py-16">
-        {/* Header */}
-        <div className="text-center mb-12 fade-in-up">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="w-6 h-6 text-accent floating" />
-            <Star className="w-8 h-8 text-primary floating" style={{ animationDelay: '0.5s' }} />
-            <Sparkles className="w-6 h-6 text-accent floating" style={{ animationDelay: '1s' }} />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-serif mb-4 text-gradient">
-            Tu Símbolo Ya Emergió. Tu Eje Mostró Un Movimiento Real Hoy.
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Lo que sentiste no fue casual: fue una señal interna que se activó sin que lo notaras.
-          </p>
-        </div>
+        <PageHeader 
+          title="Tu Símbolo Ya Emergió. Tu Eje Mostró Un Movimiento Real Hoy."
+          subtitle="Lo que sentiste no fue casual: fue una señal interna que se activó sin que lo notaras."
+        />
 
         {/* YouTube Video Section */}
         <div className="mb-12 fade-in-up">
@@ -50,7 +38,7 @@ const Diagnosis = () => {
           {/* Lectura del Movimiento Interno */}
           <Card className="p-6 md:p-8 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up">
             <div className="flex items-center gap-3 mb-6">
-              <Star className="w-6 h-6 text-accent" />
+              <Sparkles className="w-6 h-6 text-accent" />
               <h2 className="text-2xl md:text-3xl font-serif text-gradient">
                 Lectura Del Movimiento Interno
               </h2>
@@ -128,9 +116,7 @@ const Diagnosis = () => {
           </Button>
         </div>
 
-        {/* Decorative elements */}
-        <div className="absolute top-32 right-8 w-24 h-24 border-2 border-primary/20 rounded-full floating" />
-        <div className="absolute bottom-32 left-8 w-32 h-32 border border-accent/20 rounded-full floating" style={{ animationDelay: '1s' }} />
+        <DecorativeElements />
       </div>
     </div>
   );
