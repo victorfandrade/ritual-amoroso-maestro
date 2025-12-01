@@ -6,9 +6,27 @@
     <title>Ritual de Apertura de Caminos Amorosos</title>
     <meta name="description" content="Descubre tu diagnóstico amoroso personalizado y libera el bloqueo que te impide encontrar el amor verdadero" />
     <meta name="author" content="Método del Destino Vincular" />
+    
+    <!-- Critical Resource Hints for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.utmify.com.br">
+    <link rel="preconnect" href="https://tracking.utmify.com.br">
+    <link rel="preconnect" href="https://www.youtube.com">
+    <link rel="preconnect" href="https://i.ytimg.com">
+    <link rel="dns-prefetch" href="https://api.ipify.org">
+    <link rel="dns-prefetch" href="https://api6.ipify.org">
+    
+    <!-- Optimized Google Fonts with font-display: swap -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Inline Critical CSS for First Paint -->
+    <style>
+      body { margin: 0; font-family: 'Inter', sans-serif; background: hsl(280 60% 98%); color: hsl(280 40% 15%); }
+      h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
+      .mystical-glow { box-shadow: 0 0 30px hsl(275 80% 70% / 0.3); }
+      .gradient-mystical { background: linear-gradient(135deg, hsl(275 60% 55%), hsl(295 70% 65%)); }
+    </style>
 
     <meta property="og:title" content="9e1be8e6-604e-4bf8-a1aa-98aedb301596" />
     <meta property="og:description" content="Lovable Generated Project" />
@@ -24,17 +42,29 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- UTMify Pixel -->
-    <script>
+    <!-- UTMify Pixel - Async & Deferred for Performance -->
+    <script async defer>
       window.pixelId = "69275e2372c7c0db18d1018c";
-      var a = document.createElement("script");
-      a.setAttribute("async", "");
-      a.setAttribute("defer", "");
-      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-      document.head.appendChild(a);
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(function() {
+          var a = document.createElement("script");
+          a.async = true;
+          a.defer = true;
+          a.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
+          document.head.appendChild(a);
+        });
+      } else {
+        setTimeout(function() {
+          var a = document.createElement("script");
+          a.async = true;
+          a.defer = true;
+          a.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
+          document.head.appendChild(a);
+        }, 1);
+      }
     </script>
     
-    <!-- UTMify Tracking Script -->
+    <!-- UTMify Tracking Script - Async & Deferred -->
     <script
       src="https://cdn.utmify.com.br/scripts/utms/latest.js"
       data-utmify-prevent-xcod-sck
