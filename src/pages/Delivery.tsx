@@ -4,6 +4,7 @@ import { Sparkles } from "lucide-react";
 import MysticalBackground from "@/components/MysticalBackground";
 import PageHeader from "@/components/PageHeader";
 import DecorativeElements from "@/components/DecorativeElements";
+import { LazyVideo } from "@/components/LazyVideo";
 
 const Delivery = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -181,15 +182,11 @@ const Delivery = () => {
 
             {/* Video Player */}
             <div className="mt-6 sm:mt-8">
-              <div className="relative w-full aspect-video rounded-lg overflow-hidden mystical-glow border border-primary/20">
-                <iframe
-                  className="absolute inset-0 w-full h-full"
-                  src="https://www.youtube.com/embed/5oQ_wao60HQ"
-                  title="Ritual Lùmina-7 Audio"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
+              <LazyVideo
+                src="https://www.youtube.com/embed/5oQ_wao60HQ"
+                title="Ritual Lùmina-7 Audio"
+                className="relative w-full aspect-video rounded-lg overflow-hidden mystical-glow border border-primary/20"
+              />
             </div>
           </div>
 
