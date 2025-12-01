@@ -11,12 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.utmify.com.br">
-    <link rel="preconnect" href="https://tracking.utmify.com.br">
-    <link rel="dns-prefetch" href="https://api.ipify.org">
-    <link rel="dns-prefetch" href="https://api6.ipify.org">
+    <link rel="dns-prefetch" href="https://tracking.utmify.com.br">
     
-    <!-- Optimized fonts with display=swap -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Optimized font loading with display=swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    </noscript>
 
     <meta property="og:title" content="9e1be8e6-604e-4bf8-a1aa-98aedb301596" />
     <meta property="og:description" content="Lovable Generated Project" />
@@ -32,32 +33,32 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- UTMify Scripts - Loaded after main content -->
+    <!-- UTMify Pixel - Deferred loading -->
     <script>
-      // Defer UTMify initialization until page is interactive
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initUTMify);
+      window.pixelId = "69275e2372c7c0db18d1018c";
+      // Defer loading until after page load
+      if (document.readyState === 'complete') {
+        loadUTMify();
       } else {
-        initUTMify();
+        window.addEventListener('load', loadUTMify);
       }
       
-      function initUTMify() {
-        window.pixelId = "69275e2372c7c0db18d1018c";
-        var a = document.createElement("script");
-        a.async = true;
-        a.defer = true;
-        a.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
-        document.head.appendChild(a);
-        
-        var b = document.createElement("script");
-        b.async = true;
-        b.defer = true;
-        b.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
-        b.setAttribute("data-utmify-prevent-xcod-sck", "");
-        b.setAttribute("data-utmify-prevent-subids", "");
-        b.setAttribute("data-utmify-ignore-iframe", "");
-        b.setAttribute("data-utmify-is-cartpanda", "");
-        document.head.appendChild(b);
+      function loadUTMify() {
+        setTimeout(function() {
+          var a = document.createElement("script");
+          a.setAttribute("async", "");
+          a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+          document.head.appendChild(a);
+          
+          var b = document.createElement("script");
+          b.setAttribute("async", "");
+          b.setAttribute("src", "https://cdn.utmify.com.br/scripts/utms/latest.js");
+          b.setAttribute("data-utmify-prevent-xcod-sck", "");
+          b.setAttribute("data-utmify-prevent-subids", "");
+          b.setAttribute("data-utmify-ignore-iframe", "");
+          b.setAttribute("data-utmify-is-cartpanda", "");
+          document.head.appendChild(b);
+        }, 1000);
       }
     </script>
   </body>

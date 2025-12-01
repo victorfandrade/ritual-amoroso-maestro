@@ -4,7 +4,6 @@ import { Heart, Sparkles } from "lucide-react";
 import MysticalBackground from "@/components/MysticalBackground";
 import PageHeader from "@/components/PageHeader";
 import DecorativeElements from "@/components/DecorativeElements";
-import { LazyVideo } from "@/components/LazyVideo";
 
 const Diagnosis = () => {
   const handleCheckout = () => {
@@ -23,11 +22,15 @@ const Diagnosis = () => {
 
         {/* YouTube Video Section */}
         <div className="mb-12 fade-in-up">
-          <LazyVideo
-            src="https://www.youtube.com/embed/ToEg_WNpUnE"
-            title="Ritual Lùmina-7"
-            className="relative w-full aspect-video rounded-xl overflow-hidden mystical-glow border border-primary/20"
-          />
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden mystical-glow border border-primary/20">
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/ToEg_WNpUnE"
+              title="Ritual Lùmina-7"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
         </div>
 
         {/* Content Sections Below VSL */}
