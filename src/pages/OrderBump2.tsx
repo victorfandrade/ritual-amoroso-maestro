@@ -37,10 +37,12 @@ const OrderBump2 = () => {
 
             <div className="aspect-video w-full rounded-lg overflow-hidden border border-primary/20 mystical-glow">
               <iframe
-                src="https://www.youtube.com/embed/1uWiMZ42PLQ"
+                src="https://www.youtube.com/embed/1uWiMZ42PLQ?enablejsapi=1&rel=0&modestbranding=1"
                 title="Sello Lùmina de Protección Energética"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
                 className="w-full h-full"
               />
             </div>

@@ -25,10 +25,12 @@ const Diagnosis = () => {
           <div className="relative w-full aspect-video rounded-xl overflow-hidden mystical-glow border border-primary/20">
             <iframe
               className="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/ToEg_WNpUnE"
+              src="https://www.youtube.com/embed/ToEg_WNpUnE?enablejsapi=1&rel=0&modestbranding=1"
               title="Ritual Lùmina-7"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
             />
           </div>
         </div>

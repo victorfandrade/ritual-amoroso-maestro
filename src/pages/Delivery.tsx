@@ -184,10 +184,12 @@ const Delivery = () => {
               <div className="relative w-full aspect-video rounded-lg overflow-hidden mystical-glow border border-primary/20">
                 <iframe
                   className="absolute inset-0 w-full h-full"
-                  src="https://www.youtube.com/embed/5oQ_wao60HQ"
+                  src="https://www.youtube.com/embed/5oQ_wao60HQ?enablejsapi=1&rel=0&modestbranding=1"
                   title="Ritual Lùmina-7 Audio"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
                 />
               </div>
             </div>
