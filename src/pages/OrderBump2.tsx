@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import MysticalBackground from "@/components/MysticalBackground";
 import PageHeader from "@/components/PageHeader";
 import DecorativeElements from "@/components/DecorativeElements";
+import { LazyVideo } from "@/components/LazyVideo";
 
 const OrderBump2 = () => {
   const handleDownloadPDF = () => {
@@ -35,15 +36,11 @@ const OrderBump2 = () => {
               </p>
             </div>
 
-            <div className="aspect-video w-full rounded-lg overflow-hidden border border-primary/20 mystical-glow">
-              <iframe
-                src="https://www.youtube.com/embed/1uWiMZ42PLQ"
-                title="Sello Lùmina de Protección Energética"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              />
-            </div>
+            <LazyVideo
+              src="https://www.youtube.com/embed/1uWiMZ42PLQ"
+              title="Sello Lùmina de Protección Energética"
+              className="aspect-video w-full rounded-lg overflow-hidden border border-primary/20 mystical-glow"
+            />
           </div>
 
           {/* PDF Download section */}
