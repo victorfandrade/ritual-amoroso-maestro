@@ -6,18 +6,9 @@
     <title>Ritual de Apertura de Caminos Amorosos</title>
     <meta name="description" content="Descubre tu diagnóstico amoroso personalizado y libera el bloqueo que te impide encontrar el amor verdadero" />
     <meta name="author" content="Método del Destino Vincular" />
-    
-    <!-- Preconnect to critical origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.utmify.com.br">
-    <link rel="dns-prefetch" href="https://tracking.utmify.com.br">
-    
-    <!-- Optimized font loading with display=swap -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    </noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <meta property="og:title" content="9e1be8e6-604e-4bf8-a1aa-98aedb301596" />
     <meta property="og:description" content="Lovable Generated Project" />
@@ -33,33 +24,25 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- UTMify Pixel - Deferred loading -->
+    <!-- UTMify Pixel -->
     <script>
       window.pixelId = "69275e2372c7c0db18d1018c";
-      // Defer loading until after page load
-      if (document.readyState === 'complete') {
-        loadUTMify();
-      } else {
-        window.addEventListener('load', loadUTMify);
-      }
-      
-      function loadUTMify() {
-        setTimeout(function() {
-          var a = document.createElement("script");
-          a.setAttribute("async", "");
-          a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-          document.head.appendChild(a);
-          
-          var b = document.createElement("script");
-          b.setAttribute("async", "");
-          b.setAttribute("src", "https://cdn.utmify.com.br/scripts/utms/latest.js");
-          b.setAttribute("data-utmify-prevent-xcod-sck", "");
-          b.setAttribute("data-utmify-prevent-subids", "");
-          b.setAttribute("data-utmify-ignore-iframe", "");
-          b.setAttribute("data-utmify-is-cartpanda", "");
-          document.head.appendChild(b);
-        }, 1000);
-      }
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
     </script>
+    
+    <!-- UTMify Tracking Script -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      data-utmify-ignore-iframe
+      data-utmify-is-cartpanda
+      async
+      defer
+    ></script>
   </body>
 </html>
