@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,32 +7,38 @@
     <meta name="description" content="Revela la geometría interna de tu estado en solo 7 minutos. Tu símbolo está variando ahora." />
     <meta name="author" content="Lùmina" />
     
-    <!-- Critical Resource Hints for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://www.youtube.com">
-    <link rel="dns-prefetch" href="https://cdn.utmify.com.br">
-    <link rel="dns-prefetch" href="https://tracking.utmify.com.br">
-    <link rel="dns-prefetch" href="https://assets.mycartpanda.com">
-    <link rel="dns-prefetch" href="https://i.ytimg.com">
-    <link rel="dns-prefetch" href="https://api.ipify.org">
-    <link rel="dns-prefetch" href="https://api6.ipify.org">
+    <!-- Critical Preconnects (max 4) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <!-- Optimized Google Fonts with font-display: swap -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- DNS Prefetch for non-critical resources -->
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <link rel="dns-prefetch" href="https://cdn.utmify.com.br" />
+    <link rel="dns-prefetch" href="https://assets.mycartpanda.com" />
     
+    <!-- Preload critical font files -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v37/nuFiD-vYSZviVYUb_rj3ij__anPXDTnCjmHKM4nYO7KN_qiTbtbK-F2rA0s.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v14/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossorigin />
+    
+    <!-- Non-blocking Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" />
+    </noscript>
+
     <!-- Inline Critical CSS for First Paint -->
     <style>
-      body { margin: 0; font-family: 'Inter', sans-serif; background: hsl(280 60% 98%); color: hsl(280 40% 15%); }
-      h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
-      .mystical-glow { box-shadow: 0 0 30px hsl(275 80% 70% / 0.3); }
-      .gradient-mystical { background: linear-gradient(135deg, hsl(275 60% 55%), hsl(295 70% 65%)); }
+      @font-face{font-family:'Playfair Display';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/playfairdisplay/v37/nuFiD-vYSZviVYUb_rj3ij__anPXDTnCjmHKM4nYO7KN_qiTbtbK-F2rA0s.woff2) format('woff2')}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v14/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2) format('woff2')}
+      *,*::before,*::after{box-sizing:border-box}
+      body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;background:hsl(280 60% 98%);color:hsl(280 40% 15%);-webkit-font-smoothing:antialiased}
+      h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',Georgia,serif;margin:0}
+      #root{min-height:100vh}
     </style>
 
     <meta property="og:title" content="Lùmina 7 - Ritual de Alineación Interior" />
     <meta property="og:description" content="Revela la geometría interna de tu estado en solo 7 minutos" />
     <meta property="og:type" content="website" />
-
     <meta name="twitter:card" content="summary_large_image" />
   </head>
 
@@ -40,40 +46,14 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- UTMify Pixel - Async & Deferred for Performance -->
-    <script async defer>
-      window.pixelId = "69275e2372c7c0db18d1018c";
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(function() {
-          var a = document.createElement("script");
-          a.async = true;
-          a.defer = true;
-          a.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
-          document.head.appendChild(a);
-        });
-      } else {
-        setTimeout(function() {
-          var a = document.createElement("script");
-          a.async = true;
-          a.defer = true;
-          a.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
-          document.head.appendChild(a);
-        }, 1);
+    <!-- Third-party scripts loaded after interaction -->
+    <script>
+      function loadThirdParty(){
+        var u=document.createElement("script");u.async=!0;u.src="https://cdn.utmify.com.br/scripts/utms/latest.js";u.setAttribute("data-utmify-prevent-xcod-sck","");u.setAttribute("data-utmify-prevent-subids","");u.setAttribute("data-utmify-ignore-iframe","");u.setAttribute("data-utmify-is-cartpanda","");document.body.appendChild(u);
+        var c=document.createElement("script");c.async=!0;c.src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/cpsales.js";document.body.appendChild(c);
+        window.pixelId="69275e2372c7c0db18d1018c";var p=document.createElement("script");p.async=!0;p.src="https://cdn.utmify.com.br/scripts/pixel/pixel.js";document.body.appendChild(p);
       }
+      if("requestIdleCallback"in window){requestIdleCallback(loadThirdParty)}else{setTimeout(loadThirdParty,2000)}
     </script>
-    
-    <!-- UTMify Tracking Script - Async & Deferred -->
-    <script
-      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-      data-utmify-prevent-xcod-sck
-      data-utmify-prevent-subids
-      data-utmify-ignore-iframe
-      data-utmify-is-cartpanda
-      async
-      defer
-    ></script>
-    
-    <!-- CartPanda Compliance Script -->
-    <script type="text/javascript" src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/cpsales.js" async defer></script>
   </body>
 </html>
