@@ -26,14 +26,16 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" />
     </noscript>
 
-    <!-- Inline Critical CSS for First Paint -->
+    <!-- Inline Critical CSS for First Paint + LCP optimization -->
     <style>
       @font-face{font-family:'Playfair Display';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/playfairdisplay/v37/nuFiD-vYSZviVYUb_rj3ij__anPXDTnCjmHKM4nYO7KN_qiTbtbK-F2rA0s.woff2) format('woff2')}
       @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v14/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2) format('woff2')}
       *,*::before,*::after{box-sizing:border-box}
       body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;background:hsl(280 60% 98%);color:hsl(280 40% 15%);-webkit-font-smoothing:antialiased}
       h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',Georgia,serif;margin:0}
-      #root{min-height:100vh}
+      #root{min-height:100vh;contain:layout style}
+      /* LCP element optimization */
+      .lcp-text{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.5rem,4vw,2.5rem);line-height:1.2;color:hsl(280 40% 15%)}
     </style>
 
     <meta property="og:title" content="Lùmina 7 - Ritual de Alineación Interior" />
@@ -46,14 +48,57 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- Third-party scripts loaded after interaction -->
+    <!-- Third-party scripts - loaded only after user interaction or idle -->
     <script>
-      function loadThirdParty(){
-        var u=document.createElement("script");u.async=!0;u.src="https://cdn.utmify.com.br/scripts/utms/latest.js";u.setAttribute("data-utmify-prevent-xcod-sck","");u.setAttribute("data-utmify-prevent-subids","");u.setAttribute("data-utmify-ignore-iframe","");u.setAttribute("data-utmify-is-cartpanda","");document.body.appendChild(u);
-        var c=document.createElement("script");c.async=!0;c.src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/cpsales.js";document.body.appendChild(c);
-        window.pixelId="69275e2372c7c0db18d1018c";var p=document.createElement("script");p.async=!0;p.src="https://cdn.utmify.com.br/scripts/pixel/pixel.js";document.body.appendChild(p);
-      }
-      if("requestIdleCallback"in window){requestIdleCallback(loadThirdParty)}else{setTimeout(loadThirdParty,2000)}
+      (function(){
+        var loaded=false;
+        function loadThirdParty(){
+          if(loaded)return;
+          loaded=true;
+          // Only load tracking scripts on pages that need them
+          var path=window.location.pathname;
+          var needsTracking=path==='/'||path==='/quiz'||path==='/diagnosis'||path==='/delivery';
+          if(!needsTracking)return;
+          
+          // UTMify tracking
+          var u=document.createElement("script");
+          u.async=true;
+          u.defer=true;
+          u.src="https://cdn.utmify.com.br/scripts/utms/latest.js";
+          u.setAttribute("data-utmify-prevent-xcod-sck","");
+          u.setAttribute("data-utmify-prevent-subids","");
+          u.setAttribute("data-utmify-ignore-iframe","");
+          u.setAttribute("data-utmify-is-cartpanda","");
+          document.body.appendChild(u);
+          
+          // CartPanda
+          var c=document.createElement("script");
+          c.async=true;
+          c.defer=true;
+          c.src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/cpsales.js";
+          document.body.appendChild(c);
+          
+          // UTMify Pixel
+          window.pixelId="69275e2372c7c0db18d1018c";
+          var p=document.createElement("script");
+          p.async=true;
+          p.defer=true;
+          p.src="https://cdn.utmify.com.br/scripts/pixel/pixel.js";
+          document.body.appendChild(p);
+        }
+        
+        // Load on user interaction
+        ['scroll','click','touchstart','keydown'].forEach(function(evt){
+          document.addEventListener(evt,loadThirdParty,{once:true,passive:true});
+        });
+        
+        // Fallback: load after idle or 4s timeout
+        if('requestIdleCallback' in window){
+          requestIdleCallback(function(){setTimeout(loadThirdParty,1000)},{timeout:5000});
+        }else{
+          setTimeout(loadThirdParty,4000);
+        }
+      })();
     </script>
   </body>
 </html>

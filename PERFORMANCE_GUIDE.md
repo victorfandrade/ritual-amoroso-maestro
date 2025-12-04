@@ -2,78 +2,65 @@
 
 Este guia contém todas as otimizações implementadas e instruções adicionais para maximizar Core Web Vitals (LCP, FCP, TTFB, CLS, INP).
 
-## ✅ Otimizações Já Implementadas
+## ✅ Otimizações Implementadas
 
-### 1. **Recursos Críticos e Preconnect**
-- ✅ `preconnect` para Google Fonts e YouTube (críticos)
-- ✅ `dns-prefetch` para recursos secundários (UTMify, CartPanda, ipify)
-- ✅ CSS crítico inline no `index.html` para First Paint imediato
-- ✅ `font-display: swap` nas Google Fonts
-- ✅ Máximo de 3 preconnects (fonts, youtube)
+### 1. **Cache & Header Strategy**
+- ✅ `public/.htaccess` - Apache com cache 1 ano + immutable
+- ✅ `public/_headers` - Netlify/Cloudflare Pages
+- ✅ `netlify.toml` - Configuração completa Netlify
+- ✅ `vercel.json` - Configuração completa Vercel
+- ✅ Cache-Control: `public, max-age=31536000, immutable` para assets estáticos
+- ✅ HTML sem cache (`no-cache, no-store, must-revalidate`)
 
-### 2. **Scripts de Terceiros**
-- ✅ UTMify Pixel carregado com `requestIdleCallback` (não-bloqueante)
-- ✅ Scripts UTMify e CartPanda com `async` e `defer`
-- ✅ Carregamento otimizado fora do caminho crítico
-- ✅ Nenhum script bloqueia renderização
+### 2. **Code Splitting & Lazy Loading**
+- ✅ Rotas lazy-loaded com `React.lazy()` e `Suspense`
+- ✅ Apenas a página Index é carregada imediatamente
+- ✅ Outras páginas (Quiz, Diagnosis, Delivery, etc.) são carregadas sob demanda
+- ✅ Chunks separados: `vendor`, `ui`, `query`
+- ✅ Target ES2020 para bundles menores
 
-### 3. **Vídeos do YouTube (Erro 153 Corrigido)**
-- ✅ Parâmetros otimizados: `enablejsapi=1&rel=0&modestbranding=1`
-- ✅ `loading="lazy"` para lazy loading
-- ✅ `referrerPolicy="strict-origin-when-cross-origin"` para CORS em VPS
-- ✅ `allow` com `web-share` para compatibilidade total
+### 3. **Scripts de Terceiros (Lazy Loading)**
+- ✅ UTMify, CartPanda e Pixel carregados apenas após interação do usuário
+- ✅ Scripts carregam apenas em páginas que precisam (/, /quiz, /diagnosis, /delivery)
+- ✅ Fallback com `requestIdleCallback` + timeout de 4s
+- ✅ Todos scripts com `async` e `defer`
 
-### 4. **Animações e CLS**
-- ✅ `will-change` nas animações para otimizar GPU
-- ✅ `aspect-ratio` nos iframes de vídeo (previne CLS)
-- ✅ Dimensões fixas em elementos animados
+### 4. **LCP Optimization**
+- ✅ Fonts críticas (Playfair Display, Inter) preloaded no `<head>`
+- ✅ CSS crítico inline no HTML
+- ✅ H1 otimizado com `contentVisibility: auto`
+- ✅ Classe `.lcp-text` para otimização do elemento LCP
+- ✅ Google Fonts não-bloqueante com `media="print" onload`
 
-### 5. **Cache e Compressão**
-- ✅ Arquivo `.htaccess` com:
-  - Compressão GZIP e Brotli
-  - Cache de 1 ano para assets estáticos
-  - Headers de Cache-Control otimizados
-  - ETag removido
+### 5. **CLS Prevention**
+- ✅ Dimensões fixas em todos elementos animados
+- ✅ `contain: layout style paint` em elementos decorativos
+- ✅ `containIntrinsicSize` em elementos com contentVisibility
+- ✅ `min-height` em containers de ícones
+- ✅ `#root` com `contain: layout style`
 
-### 6. **Build Otimizado (Vite)**
-- ✅ Minificação com Terser
-- ✅ Drop de console.log e debugger em produção
-- ✅ Code splitting com vendor chunk separado
-- ✅ Remoção do lovable-tagger
+### 6. **Animações Compostas (GPU)**
+- ✅ Todas animações usam apenas `transform` + `opacity`
+- ✅ `will-change: transform` em elementos animados
+- ✅ `backface-visibility: hidden` para GPU acceleration
+- ✅ `translateZ(0)` para forçar composição GPU
+- ✅ Nenhuma animação baseada em `height`, `width`, `top`, `left`
 
-## 📋 Instruções Adicionais (Antes do Build)
+### 7. **Long Tasks Mitigation**
+- ✅ Scripts terceiros movidos para `requestIdleCallback`
+- ✅ Componentes memoizados com `React.memo()`
+- ✅ Terser com 2 passes de compressão
+- ✅ Remoção de console.log/debug/warn em produção
 
-### 1. **Configuração do Servidor (VPS)**
+### 8. **Build Optimizations (Vite/Terser)**
+- ✅ Minificação com Terser (2 passes)
+- ✅ Drop de console.*, debugger
+- ✅ Remoção de comentários
+- ✅ Code splitting automático por dependência
+- ✅ Target ES2020 para bundles menores
+- ✅ Safari10 compatibility
 
-#### Para Nginx:
-```nginx
-# GZIP Compression
-gzip on;
-gzip_vary on;
-gzip_min_length 1024;
-gzip_types text/plain text/css text/xml text/javascript application/javascript application/xml+rss application/json image/svg+xml;
-
-# Brotli (se disponível)
-brotli on;
-brotli_types text/plain text/css application/javascript application/json image/svg+xml;
-
-# Cache Headers
-location ~* \.(jpg|jpeg|png|gif|ico|css|js|svg|woff|woff2|ttf|otf)$ {
-    expires 1y;
-    add_header Cache-Control "public, immutable";
-}
-
-# No-cache para HTML
-location ~* \.html$ {
-    expires 0;
-    add_header Cache-Control "no-cache, no-store, must-revalidate";
-}
-```
-
-#### Para Apache:
-O arquivo `public/.htaccess` já contém todas as configurações necessárias.
-
-### 2. **Build Otimizado**
+## 📋 Instruções para Build
 
 ```bash
 # 1. Limpar cache
@@ -89,61 +76,55 @@ npm run build
 npm run preview
 ```
 
-### 3. **Configuração Vite (já implementada)**
-
-```typescript
-// vite.config.ts
-export default defineConfig({
-  build: {
-    minify: "terser",
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ["react", "react-dom", "react-router-dom"],
-        },
-      },
-    },
-  },
-});
-```
-
 ## 🎯 Metas de Performance (Core Web Vitals)
 
-| Métrica | Alvo | Status |
-|---------|------|--------|
-| **LCP** | < 2.5s | ✅ |
-| **FCP** | < 1.8s | ✅ |
+| Métrica | Alvo | Otimizações |
+|---------|------|-------------|
+| **LCP** | < 2.5s | Preload fonts, inline CSS, contentVisibility |
+| **FCP** | < 1.8s | Critical CSS inline, non-blocking fonts |
 | **TTFB** | < 800ms | Depende do servidor |
-| **CLS** | < 0.1 | ✅ |
-| **INP** | < 200ms | ✅ |
+| **CLS** | < 0.1 | Fixed dimensions, contain, no reflow |
+| **INP** | < 200ms | Lazy scripts, memo components |
 
-## 🐛 Solução do Erro 153 do YouTube
+## 🔧 Arquivos de Configuração por Plataforma
 
-O erro 153 ocorre em VPS quando o YouTube bloqueia embedding. Solução:
+| Plataforma | Arquivo |
+|------------|---------|
+| Apache | `public/.htaccess` |
+| Nginx | Ver configuração abaixo |
+| Netlify | `netlify.toml` + `public/_headers` |
+| Vercel | `vercel.json` |
+| Cloudflare Pages | `public/_headers` |
 
-1. `referrerPolicy="strict-origin-when-cross-origin"`
-2. Parâmetros: `enablejsapi=1&rel=0&modestbranding=1`
-3. `allow` com todas as permissões necessárias
+### Nginx Configuration
+```nginx
+# GZIP Compression
+gzip on;
+gzip_vary on;
+gzip_min_length 1024;
+gzip_types text/plain text/css text/xml text/javascript application/javascript application/json image/svg+xml;
 
-## 📊 Monitoramento
+# Cache Headers
+location ~* \.(jpg|jpeg|png|gif|ico|css|js|svg|woff|woff2|ttf|otf)$ {
+    expires 1y;
+    add_header Cache-Control "public, max-age=31536000, immutable";
+}
 
-### Ferramentas Recomendadas
-- **PageSpeed Insights**: https://pagespeed.web.dev/
-- **GTmetrix**: https://gtmetrix.com/
-- **WebPageTest**: https://www.webpagetest.org/
+# No-cache para HTML
+location ~* \.html$ {
+    expires 0;
+    add_header Cache-Control "no-cache, no-store, must-revalidate";
+}
+```
 
-### Checklist Pré-Deploy
-- [ ] Build sem erros: `npm run build`
-- [ ] Servidor com GZIP/Brotli
-- [ ] Cache de 1 ano para assets
+## 📊 Checklist Pré-Deploy
+
+- [ ] `npm run build` sem erros
+- [ ] Arquivos de cache configurados para sua plataforma
+- [ ] GZIP/Brotli ativado no servidor
 - [ ] SSL/HTTPS configurado
-- [ ] PageSpeed > 90
+- [ ] Testar no PageSpeed Insights
+- [ ] Verificar Network tab - nenhum script bloqueante
 
 ---
 

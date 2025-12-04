@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Sparkles, Star } from "lucide-react";
 
 interface PageHeaderProps {
@@ -5,24 +6,49 @@ interface PageHeaderProps {
   subtitle?: string;
 }
 
-const PageHeader = ({ title, subtitle }: PageHeaderProps) => {
+const PageHeader = memo(({ title, subtitle }: PageHeaderProps) => {
   return (
-    <div className="text-center mb-12 fade-in-up">
-      <div className="flex items-center justify-center gap-2 mb-4">
-        <Sparkles className="w-6 h-6 text-accent floating" />
-        <Star className="w-8 h-8 text-primary floating" style={{ animationDelay: '0.5s' }} />
-        <Sparkles className="w-6 h-6 text-accent floating" style={{ animationDelay: '1s' }} />
+    <header className="text-center mb-8 md:mb-12 fade-in-up">
+      {/* Icons with fixed dimensions to prevent CLS */}
+      <div 
+        className="flex items-center justify-center gap-2 mb-4"
+        style={{ minHeight: '2rem' }}
+        aria-hidden="true"
+      >
+        <Sparkles 
+          className="w-6 h-6 text-accent floating" 
+          style={{ willChange: 'transform', contain: 'layout style paint' }}
+        />
+        <Star 
+          className="w-8 h-8 text-primary floating" 
+          style={{ animationDelay: '0.5s', willChange: 'transform', contain: 'layout style paint' }} 
+        />
+        <Sparkles 
+          className="w-6 h-6 text-accent floating" 
+          style={{ animationDelay: '1s', willChange: 'transform', contain: 'layout style paint' }} 
+        />
       </div>
-      <h1 className="text-4xl md:text-5xl font-serif mb-4 text-gradient">
+      
+      {/* H1 is likely LCP element */}
+      <h1 
+        className="text-3xl sm:text-4xl md:text-5xl font-serif mb-4 text-gradient leading-tight"
+        style={{ 
+          contentVisibility: 'auto',
+          containIntrinsicSize: '0 80px'
+        }}
+      >
         {title}
       </h1>
+      
       {subtitle && (
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           {subtitle}
         </p>
       )}
-    </div>
+    </header>
   );
-};
+});
+
+PageHeader.displayName = "PageHeader";
 
 export default PageHeader;
