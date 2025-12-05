@@ -6,8 +6,7 @@ import DecorativeElements from "@/components/DecorativeElements";
 
 const DownsellDelivery = () => {
   const handleDownload = () => {
-    // Replace with actual downsell delivery link
-    window.open("https://drive.google.com/uc?export=download&id=YOUR_DOWNSELL_FILE_ID", "_blank");
+    window.open("https://drive.google.com/drive/folders/1KK4iqVPx-MYNri3r5QLAu1ysNlnLNna5?usp=sharing", "_blank");
   };
 
   return (
