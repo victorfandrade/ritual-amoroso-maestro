@@ -6,18 +6,12 @@ import DecorativeElements from "@/components/DecorativeElements";
 
 const UpsellDelivery = () => {
   const handleDownload = () => {
-    // Replace with actual upsell delivery link
-    window.open("https://drive.google.com/uc?export=download&id=YOUR_UPSELL_FILE_ID", "_blank");
+    window.open("https://drive.google.com/drive/folders/1MvBtpYW995m1d8s2BEzVe6JMt7u0qOWt?usp=sharing", "_blank");
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-muted/30 to-background relative overflow-hidden">
-      {/* Mystical background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl floating" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl floating" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-mystical-glow/5 rounded-full blur-3xl floating" style={{ animationDelay: '2s' }} />
-      </div>
+      <MysticalBackground />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 py-12 md:py-16">
         <PageHeader 
@@ -46,7 +40,7 @@ const UpsellDelivery = () => {
               <Button
                 onClick={handleDownload}
                 size="lg"
-                className="group w-full sm:w-auto h-14 text-lg font-semibold gradient-mystical hover:scale-105 transition-all duration-300 mystical-glow-intense shadow-2xl relative overflow-hidden"
+                className="group w-full sm:w-auto h-14 text-lg font-serif font-semibold gradient-mystical hover:scale-105 transition-all duration-300 mystical-glow-intense shadow-2xl relative overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 <Download className="w-5 h-5 mr-2 relative" />
