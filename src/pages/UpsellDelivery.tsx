@@ -6,7 +6,8 @@ import DecorativeElements from "@/components/DecorativeElements";
 
 const UpsellDelivery = () => {
   const handleDownload = () => {
-    window.open("https://drive.google.com/drive/folders/1MvBtpYW995m1d8s2BEzVe6JMt7u0qOWt?usp=sharing", "_blank");
+    // Replace with actual upsell delivery link
+    window.open("https://drive.google.com/uc?export=download&id=YOUR_UPSELL_FILE_ID", "_blank");
   };
 
   return (
@@ -45,7 +46,7 @@ const UpsellDelivery = () => {
               <Button
                 onClick={handleDownload}
                 size="lg"
-                className="group w-full sm:w-auto h-14 text-lg font-serif font-semibold gradient-mystical hover:scale-105 transition-all duration-300 mystical-glow-intense shadow-2xl relative overflow-hidden"
+                className="group w-full sm:w-auto h-14 text-lg font-semibold gradient-mystical hover:scale-105 transition-all duration-300 mystical-glow-intense shadow-2xl relative overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 <Download className="w-5 h-5 mr-2 relative" />

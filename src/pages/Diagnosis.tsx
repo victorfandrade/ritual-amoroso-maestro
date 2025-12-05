@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Sparkles } from "lucide-react";
+import { Heart, Sparkles } from "lucide-react";
 import MysticalBackground from "@/components/MysticalBackground";
 import PageHeader from "@/components/PageHeader";
 import DecorativeElements from "@/components/DecorativeElements";
@@ -17,7 +17,7 @@ const Diagnosis = () => {
       <div className="relative z-10 max-w-4xl mx-auto px-4 py-12 md:py-16">
         <PageHeader 
           title="Tu Símbolo Ya Emergió. Tu Eje Mostró Un Movimiento Real Hoy."
-          subtitle="Lo que sentiste no fue casual: fue una señal interna que se activó sin que lo notaras. Ahora, mira el video rápido abajo para identificar tu diagnóstico."
+          subtitle="Lo que sentiste no fue casual: fue una señal interna que se activó sin que lo notaras."
         />
 
         {/* YouTube Video Section */}
@@ -25,8 +25,8 @@ const Diagnosis = () => {
           <div className="relative w-full aspect-video rounded-xl overflow-hidden mystical-glow border border-primary/20">
             <iframe
               className="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/Dr8dNTWxT4Y?enablejsapi=1&rel=0&modestbranding=1"
-              title="Lùmina-7 Diagnóstico"
+              src="https://www.youtube.com/embed/ToEg_WNpUnE?enablejsapi=1&rel=0&modestbranding=1"
+              title="Ritual Lùmina-7"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
               loading="lazy"
@@ -39,9 +39,12 @@ const Diagnosis = () => {
         <div className="space-y-8">
           {/* Lectura del Movimiento Interno */}
           <Card className="p-6 md:p-8 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up">
-            <h2 className="text-2xl md:text-3xl font-serif text-gradient mb-6">
-              Lectura Del Movimiento Interno
-            </h2>
+            <div className="flex items-center gap-3 mb-6">
+              <Sparkles className="w-6 h-6 text-accent" />
+              <h2 className="text-2xl md:text-3xl font-serif text-gradient">
+                Lectura Del Movimiento Interno
+              </h2>
+            </div>
             <div className="space-y-4 text-foreground/90 leading-relaxed">
               <p className="text-lg font-medium text-primary">
                 Estado Lùmina: Tipo B — apertura sutil del eje
@@ -57,9 +60,12 @@ const Diagnosis = () => {
 
           {/* Por Qué Tu Símbolo Importa Hoy */}
           <Card className="p-6 md:p-8 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up">
-            <h2 className="text-2xl md:text-3xl font-serif text-gradient mb-6">
-              Por Qué Tu Símbolo Importa Hoy
-            </h2>
+            <div className="flex items-center gap-3 mb-6">
+              <Sparkles className="w-6 h-6 text-primary" />
+              <h2 className="text-2xl md:text-3xl font-serif text-gradient">
+                Por Qué Tu Símbolo Importa Hoy
+              </h2>
+            </div>
             <div className="space-y-4 text-foreground/90 leading-relaxed">
               <p>
                 El símbolo es la geometría exacta que tu estado adoptó hoy.
@@ -75,9 +81,12 @@ const Diagnosis = () => {
 
           {/* Lo Que Hace el Ritual Lùmina-7 */}
           <Card className="p-6 md:p-8 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up">
-            <h2 className="text-2xl md:text-3xl font-serif text-gradient mb-6">
-              Lo Que Hace El Ritual Lùmina-7
-            </h2>
+            <div className="flex items-center gap-3 mb-6">
+              <Heart className="w-6 h-6 text-accent" />
+              <h2 className="text-2xl md:text-3xl font-serif text-gradient">
+                Lo Que Hace El Ritual Lùmina-7
+              </h2>
+            </div>
             <div className="space-y-4 text-foreground/90 leading-relaxed">
               <div className="bg-primary/10 p-5 rounded-lg border border-primary/30">
                 <p className="font-medium mb-2 text-gradient">Tu Símbolo Único</p>
@@ -100,7 +109,7 @@ const Diagnosis = () => {
           <Button
             onClick={handleCheckout}
             size="lg"
-            className="group w-full h-16 text-xl font-serif font-semibold gradient-mystical hover:scale-105 transition-all duration-300 mystical-glow-intense shadow-2xl relative overflow-hidden"
+            className="group w-full h-16 text-xl font-semibold gradient-mystical hover:scale-105 transition-all duration-300 mystical-glow-intense shadow-2xl relative overflow-hidden"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             <Sparkles className="w-6 h-6 mr-2 group-hover:rotate-12 transition-transform" />

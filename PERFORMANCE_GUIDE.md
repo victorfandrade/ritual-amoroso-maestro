@@ -1,113 +1,60 @@
-# 🚀 Guia de Otimização de Performance - Lùmina 7
+# 🚀 Guia de Otimização de Performance
 
-Este guia contém todas as otimizações implementadas e instruções adicionais para maximizar Core Web Vitals (LCP, FCP, TTFB, CLS, INP).
+Este guia contém todas as otimizações implementadas e instruções adicionais para maximizar Core Web Vitals (LCP, FCP, TTFB, CLS).
 
-## ✅ Otimizações Implementadas
+## ✅ Otimizações Já Implementadas
 
-### 1. **Cache & Header Strategy**
-- ✅ `public/.htaccess` - Apache com cache 1 ano + immutable
-- ✅ `public/_headers` - Netlify/Cloudflare Pages
-- ✅ `netlify.toml` - Configuração completa Netlify
-- ✅ `vercel.json` - Configuração completa Vercel
-- ✅ Cache-Control: `public, max-age=31536000, immutable` para assets estáticos
-- ✅ HTML sem cache (`no-cache, no-store, must-revalidate`)
+### 1. **Recursos Críticos e Preconnect**
+- ✅ `preconnect` para Google Fonts, UTMify, YouTube, e APIs
+- ✅ `dns-prefetch` para APIs de IP (ipify)
+- ✅ CSS crítico inline no `index.html` para First Paint
+- ✅ `font-display: swap` nas Google Fonts
 
-### 2. **Code Splitting & Lazy Loading**
-- ✅ Rotas lazy-loaded com `React.lazy()` e `Suspense`
-- ✅ Apenas a página Index é carregada imediatamente
-- ✅ Outras páginas (Quiz, Diagnosis, Delivery, etc.) são carregadas sob demanda
-- ✅ Chunks separados: `vendor`, `ui`, `query`
-- ✅ Target ES2020 para bundles menores
+### 2. **Scripts de Terceiros**
+- ✅ UTMify Pixel carregado com `requestIdleCallback` (não-bloqueante)
+- ✅ Scripts UTMify com `async` e `defer`
+- ✅ Carregamento otimizado fora do caminho crítico
 
-### 3. **Scripts de Terceiros (Lazy Loading)**
-- ✅ UTMify, CartPanda e Pixel carregados apenas após interação do usuário
-- ✅ Scripts carregam apenas em páginas que precisam (/, /quiz, /diagnosis, /delivery)
-- ✅ Fallback com `requestIdleCallback` + timeout de 4s
-- ✅ Todos scripts com `async` e `defer`
+### 3. **Vídeos do YouTube (Erro 153 Corrigido)**
+- ✅ Parâmetros otimizados: `enablejsapi=1&rel=0&modestbranding=1`
+- ✅ `loading="lazy"` para lazy loading
+- ✅ `referrerPolicy="strict-origin-when-cross-origin"` para CORS
+- ✅ `allow` com `web-share` para compatibilidade
 
-### 4. **LCP Optimization**
-- ✅ Fonts críticas (Playfair Display, Inter) preloaded no `<head>`
-- ✅ CSS crítico inline no HTML
-- ✅ H1 otimizado com `contentVisibility: auto`
-- ✅ Classe `.lcp-text` para otimização do elemento LCP
-- ✅ Google Fonts não-bloqueante com `media="print" onload`
+### 4. **Animações e CLS**
+- ✅ `will-change` nas animações para otimizar GPU
+- ✅ `aspect-ratio` nos iframes de vídeo (previne CLS)
+- ✅ Dimensões fixas em elementos animados
 
-### 5. **CLS Prevention**
-- ✅ Dimensões fixas em todos elementos animados
-- ✅ `contain: layout style paint` em elementos decorativos
-- ✅ `containIntrinsicSize` em elementos com contentVisibility
-- ✅ `min-height` em containers de ícones
-- ✅ `#root` com `contain: layout style`
+### 5. **Cache e Compressão**
+- ✅ Arquivo `.htaccess` criado com:
+  - Compressão GZIP e Brotli
+  - Cache de 1 ano para assets estáticos
+  - Headers de Cache-Control otimizados
 
-### 6. **Animações Compostas (GPU)**
-- ✅ Todas animações usam apenas `transform` + `opacity`
-- ✅ `will-change: transform` em elementos animados
-- ✅ `backface-visibility: hidden` para GPU acceleration
-- ✅ `translateZ(0)` para forçar composição GPU
-- ✅ Nenhuma animação baseada em `height`, `width`, `top`, `left`
+## 📋 Instruções Adicionais (Antes do Build)
 
-### 7. **Long Tasks Mitigation**
-- ✅ Scripts terceiros movidos para `requestIdleCallback`
-- ✅ Componentes memoizados com `React.memo()`
-- ✅ Terser com 2 passes de compressão
-- ✅ Remoção de console.log/debug/warn em produção
+### 1. **Configuração do Servidor (VPS)**
 
-### 8. **Build Optimizations (Vite/Terser)**
-- ✅ Minificação com Terser (2 passes)
-- ✅ Drop de console.*, debugger
-- ✅ Remoção de comentários
-- ✅ Code splitting automático por dependência
-- ✅ Target ES2020 para bundles menores
-- ✅ Safari10 compatibility
+#### Para Nginx:
+Adicione ao seu `nginx.conf` ou ao bloco `server`:
 
-## 📋 Instruções para Build
-
-```bash
-# 1. Limpar cache
-rm -rf node_modules/.vite dist
-
-# 2. Instalar dependências
-npm install
-
-# 3. Build de produção
-npm run build
-
-# 4. Preview local (opcional)
-npm run preview
-```
-
-## 🎯 Metas de Performance (Core Web Vitals)
-
-| Métrica | Alvo | Otimizações |
-|---------|------|-------------|
-| **LCP** | < 2.5s | Preload fonts, inline CSS, contentVisibility |
-| **FCP** | < 1.8s | Critical CSS inline, non-blocking fonts |
-| **TTFB** | < 800ms | Depende do servidor |
-| **CLS** | < 0.1 | Fixed dimensions, contain, no reflow |
-| **INP** | < 200ms | Lazy scripts, memo components |
-
-## 🔧 Arquivos de Configuração por Plataforma
-
-| Plataforma | Arquivo |
-|------------|---------|
-| Apache | `public/.htaccess` |
-| Nginx | Ver configuração abaixo |
-| Netlify | `netlify.toml` + `public/_headers` |
-| Vercel | `vercel.json` |
-| Cloudflare Pages | `public/_headers` |
-
-### Nginx Configuration
 ```nginx
 # GZIP Compression
 gzip on;
 gzip_vary on;
 gzip_min_length 1024;
-gzip_types text/plain text/css text/xml text/javascript application/javascript application/json image/svg+xml;
+gzip_types text/plain text/css text/xml text/javascript application/javascript application/xml+rss application/json image/svg+xml;
+gzip_disable "msie6";
 
-# Cache Headers
+# Brotli Compression (se disponível)
+brotli on;
+brotli_types text/plain text/css application/javascript application/json image/svg+xml application/xml+rss;
+
+# Cache Headers para Assets Estáticos
 location ~* \.(jpg|jpeg|png|gif|ico|css|js|svg|woff|woff2|ttf|otf)$ {
     expires 1y;
-    add_header Cache-Control "public, max-age=31536000, immutable";
+    add_header Cache-Control "public, immutable";
 }
 
 # No-cache para HTML
@@ -117,16 +64,102 @@ location ~* \.html$ {
 }
 ```
 
-## 📊 Checklist Pré-Deploy
+#### Para Apache:
+O arquivo `.htaccess` já foi criado em `public/.htaccess` com todas as configurações necessárias.
 
-- [ ] `npm run build` sem erros
-- [ ] Arquivos de cache configurados para sua plataforma
-- [ ] GZIP/Brotli ativado no servidor
-- [ ] SSL/HTTPS configurado
-- [ ] Testar no PageSpeed Insights
-- [ ] Verificar Network tab - nenhum script bloqueante
+### 2. **Build Otimizado**
+
+Antes de rodar `npm run build`, certifique-se:
+
+```bash
+# 1. Limpar cache
+npm cache clean --force
+
+# 2. Instalar dependências limpas
+rm -rf node_modules package-lock.json
+npm install
+
+# 3. Build de produção
+npm run build
+
+# 4. Analisar bundle (opcional)
+npx vite-bundle-visualizer
+```
+
+### 3. **Configuração do Vite (já otimizada)**
+
+O `vite.config.ts` já está configurado, mas você pode adicionar:
+
+```typescript
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'ui-vendor': ['lucide-react', '@radix-ui/react-slot']
+        }
+      }
+    },
+    cssCodeSplit: true,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    }
+  }
+});
+```
+
+### 4. **Métricas Core Web Vitals**
+
+Após o deploy, meça com:
+- **Lighthouse**: `npm run build && npx serve dist`
+- **Google PageSpeed Insights**: https://pagespeed.web.dev/
+- **WebPageTest**: https://www.webpagetest.org/
+
+### 5. **Checklist Final**
+
+Antes do deploy em produção:
+
+- [ ] `.htaccess` ou configuração Nginx aplicada
+- [ ] Build de produção criado (`npm run build`)
+- [ ] Assets comprimidos (GZIP/Brotli habilitado)
+- [ ] Headers de cache configurados (1 ano para assets)
+- [ ] Fontes com `font-display: swap`
+- [ ] Scripts de terceiros com `async/defer`
+- [ ] Vídeos com `loading="lazy"`
+- [ ] CSS crítico inline
+- [ ] Sem redirecionamentos desnecessários
+
+## 🎯 Metas de Performance
+
+Com as otimizações aplicadas, você deve atingir:
+
+- **LCP (Largest Contentful Paint)**: < 2.5s
+- **FCP (First Contentful Paint)**: < 1.8s
+- **TTFB (Time to First Byte)**: < 600ms
+- **CLS (Cumulative Layout Shift)**: < 0.1
+- **FID (First Input Delay)**: < 100ms
+
+## 🐛 Solução do Erro 153 do YouTube
+
+O erro 153 foi corrigido com:
+1. Parâmetros corretos de embedding (`enablejsapi=1`, `rel=0`)
+2. `referrerPolicy="strict-origin-when-cross-origin"`
+3. `allow` com todas as permissões necessárias
+4. `loading="lazy"` para performance
+
+## 📊 Monitoramento Contínuo
+
+Configure monitoramento com:
+- **Google Analytics 4**: Para métricas de usuários reais
+- **Search Console**: Para Core Web Vitals reais
+- **Sentry**: Para erros de runtime
 
 ---
 
-**Última atualização**: 2025-12-04
-**Projeto**: Lùmina 7 - Ritual de Alineación Interior
+**Última atualização**: 2025-12-01
+**Versão**: 1.0.0

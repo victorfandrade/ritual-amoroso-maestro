@@ -272,7 +272,7 @@ const Delivery = () => {
             </div>
             <Button 
               onClick={handleExplore}
-              className="w-full h-12 sm:h-14 text-base sm:text-lg font-serif font-semibold gradient-mystical hover:scale-105 transition-all duration-300 mystical-glow-intense mt-6"
+              className="w-full h-12 sm:h-14 text-base sm:text-lg font-medium gradient-mystical hover:scale-105 transition-all duration-300 mystical-glow-intense mt-6"
             >
               Explorar Lùmina-21 →
             </Button>

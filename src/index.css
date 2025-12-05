@@ -126,57 +126,38 @@ All colors MUST be HSL.
     @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
   }
 
-  /* Optimized floating animation - uses only transform (GPU composited) */
   .floating {
     animation: floating 3s ease-in-out infinite;
     will-change: transform;
-    backface-visibility: hidden;
-    transform: translateZ(0);
   }
 
   @keyframes floating {
     0%, 100% {
-      transform: translateY(0) translateZ(0);
+      transform: translateY(0px);
     }
     50% {
-      transform: translateY(-10px) translateZ(0);
+      transform: translateY(-10px);
     }
   }
 
-  /* Optimized fade-in-up - uses only transform + opacity (GPU composited) */
   .fade-in-up {
     animation: fadeInUp 0.6s ease-out;
     will-change: opacity, transform;
-    backface-visibility: hidden;
   }
 
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(20px) translateZ(0);
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
-      transform: translateY(0) translateZ(0);
+      transform: translateY(0);
     }
   }
   
   /* Performance optimization for animations */
   .animate-pulse {
     will-change: opacity;
-    backface-visibility: hidden;
-  }
-
-  /* Contain for performance */
-  .contain-paint {
-    contain: paint;
-  }
-
-  .contain-layout {
-    contain: layout;
-  }
-
-  .contain-strict {
-    contain: strict;
   }
 }

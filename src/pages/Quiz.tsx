@@ -154,7 +154,7 @@ const Quiz = () => {
           <Button
             onClick={handleNext}
             disabled={!selectedOption}
-            className="w-full mt-4 sm:mt-6 md:mt-8 h-10 sm:h-11 md:h-12 text-sm sm:text-base md:text-lg font-serif font-semibold gradient-mystical hover:opacity-90 transition-opacity disabled:opacity-50 mystical-glow"
+            className="w-full mt-4 sm:mt-6 md:mt-8 h-10 sm:h-11 md:h-12 text-sm sm:text-base md:text-lg font-medium gradient-mystical hover:opacity-90 transition-opacity disabled:opacity-50 mystical-glow"
           >
             {currentQuestion < questions.length - 1 ? "Continuar" : "Ver mi Lectura"}
           </Button>
