@@ -2,34 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
 @layer base {
   :root {
+    /* Mystical Purple Palette */
     --background: 280 60% 98%;
     --foreground: 280 40% 15%;
+
     --card: 280 45% 97%;
     --card-foreground: 280 40% 15%;
+
     --popover: 280 50% 98%;
     --popover-foreground: 280 40% 15%;
+
+    /* Deep mystical purple as primary */
     --primary: 275 60% 45%;
     --primary-foreground: 280 45% 98%;
+
+    /* Lilac for secondary */
     --secondary: 280 50% 85%;
     --secondary-foreground: 280 50% 25%;
+
+    /* Soft purple muted tones */
     --muted: 280 40% 92%;
     --muted-foreground: 280 20% 45%;
+
+    /* Bright accent purple/magenta */
     --accent: 295 70% 65%;
     --accent-foreground: 280 50% 98%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 280 45% 98%;
+
     --border: 280 30% 88%;
     --input: 280 30% 90%;
     --ring: 275 60% 50%;
+
     --radius: 1rem;
+
+    /* Mystical Design Tokens */
     --mystical-glow: 275 80% 70%;
     --ethereal-light: 280 70% 90%;
     --deep-mystical: 275 50% 30%;
+    
+    /* Gradients */
     --gradient-mystical: linear-gradient(135deg, hsl(275 60% 55%), hsl(295 70% 65%));
     --gradient-ethereal: linear-gradient(180deg, hsl(280 60% 98%), hsl(280 50% 92%));
     --gradient-deep: linear-gradient(135deg, hsl(275 50% 35%), hsl(275 60% 45%));
+
+    /* Shadows and Glows */
     --shadow-mystical: 0 10px 40px -10px hsl(275 60% 45% / 0.4);
     --glow-soft: 0 0 30px hsl(275 80% 70% / 0.3);
     --glow-intense: 0 0 50px hsl(295 70% 65% / 0.5);
@@ -38,35 +62,42 @@
   .dark {
     --background: 275 50% 8%;
     --foreground: 280 45% 95%;
+
     --card: 275 45% 10%;
     --card-foreground: 280 45% 95%;
+
     --popover: 275 50% 8%;
     --popover-foreground: 280 45% 95%;
+
     --primary: 275 70% 60%;
     --primary-foreground: 280 50% 98%;
+
     --secondary: 275 40% 20%;
     --secondary-foreground: 280 45% 95%;
+
     --muted: 275 35% 18%;
     --muted-foreground: 280 30% 65%;
+
     --accent: 295 75% 70%;
     --accent-foreground: 280 50% 98%;
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 280 45% 95%;
+
     --border: 275 35% 22%;
     --input: 275 35% 22%;
     --ring: 275 70% 65%;
   }
+}
 
+@layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
     font-family: 'Inter', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeSpeed;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -98,21 +129,35 @@
   .floating {
     animation: floating 3s ease-in-out infinite;
     will-change: transform;
-    transform: translateZ(0);
+  }
+
+  @keyframes floating {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
   .fade-in-up {
     animation: fadeInUp 0.6s ease-out;
     will-change: opacity, transform;
   }
-}
 
-@keyframes floating {
-  0%, 100% { transform: translateY(0) translateZ(0); }
-  50% { transform: translateY(-10px) translateZ(0); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px) translateZ(0); }
-  to { opacity: 1; transform: translateY(0) translateZ(0); }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Performance optimization for animations */
+  .animate-pulse {
+    will-change: opacity;
+  }
 }
