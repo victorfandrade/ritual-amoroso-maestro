@@ -1,3 +1,4 @@
+import { memo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
@@ -5,11 +6,29 @@ import MysticalBackground from "@/components/MysticalBackground";
 import PageHeader from "@/components/PageHeader";
 import DecorativeElements from "@/components/DecorativeElements";
 
+const StepCard = memo(({ num, color, title, subtitle }: { num: string; color: "primary" | "accent"; title: string; subtitle: string }) => (
+  <div className={`bg-card/50 backdrop-blur-sm p-6 rounded-lg border border-${color}/20 text-center space-y-4`}>
+    <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-${color}/10 border-2 border-${color}/30 mx-auto flex items-center justify-center mystical-glow`}>
+      <span className={`text-2xl sm:text-3xl font-serif text-${color}`}>{num}</span>
+    </div>
+    <div>
+      <p className="text-base sm:text-lg font-medium text-foreground">{title}</p>
+      <p className="text-xs sm:text-sm text-muted-foreground mt-1">{subtitle}</p>
+    </div>
+  </div>
+));
+
+StepCard.displayName = "StepCard";
+
 const Index = () => {
   const navigate = useNavigate();
+  
+  const handleStart = useCallback(() => {
+    navigate("/quiz");
+  }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-muted/30 to-background relative overflow-hidden">
+    <main className="min-h-screen bg-gradient-to-b from-background via-muted/30 to-background relative overflow-hidden">
       <MysticalBackground />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 py-12 md:py-16">
@@ -18,10 +37,7 @@ const Index = () => {
           subtitle="Tu símbolo está variando ahora. Solo podemos leer la forma que adoptó hoy."
         />
 
-        {/* Main Content */}
         <div className="mb-8 fade-in-up space-y-8">
-
-          {/* How it works - 3 steps */}
           <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
             <div className="bg-card/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 text-center space-y-4">
               <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/10 border-2 border-primary/30 mx-auto flex items-center justify-center mystical-glow">
@@ -54,29 +70,27 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Testimonial Section */}
           <div className="bg-card/50 backdrop-blur-sm p-8 rounded-lg border border-primary/20">
             <p className="text-base sm:text-lg text-muted-foreground text-center leading-relaxed italic">
               "Yo pensé que esto iba a ser otra cosa complicada… pero el Ritual Lùmina-7 fue tan simple que hice en menos de ocho minutos. Y lo que más me sorprendió es que sentí mi cabeza más clara al terminar. No sé cómo explicarlo, pero funciona." <span className="font-medium text-foreground">— Camila</span>
             </p>
           </div>
 
-          {/* CTA Button */}
           <Button
-            onClick={() => navigate("/quiz")}
+            onClick={handleStart}
             size="lg"
             className="group w-full h-16 text-xl font-serif font-semibold gradient-mystical hover:scale-105 transition-all duration-300 mystical-glow-intense shadow-2xl relative overflow-hidden"
           >
-            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-            <Sparkles className="w-6 h-6 mr-2 group-hover:rotate-12 transition-transform" />
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" aria-hidden="true" />
+            <Sparkles className="w-6 h-6 mr-2 group-hover:rotate-12 transition-transform" aria-hidden="true" />
             <span className="relative">Iniciar el Ritual</span>
-            <Sparkles className="w-6 h-6 ml-2 group-hover:-rotate-12 transition-transform" />
+            <Sparkles className="w-6 h-6 ml-2 group-hover:-rotate-12 transition-transform" aria-hidden="true" />
           </Button>
         </div>
 
         <DecorativeElements />
       </div>
-    </div>
+    </main>
   );
 };
 
