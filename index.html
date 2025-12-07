@@ -6,25 +6,19 @@
     <title>Lùmina 7 - Ritual de Alineación Interior</title>
     <meta name="description" content="Revela la geometría interna de tu estado en solo 7 minutos. Descubre tu símbolo único y activa el movimiento interno." />
     <meta name="author" content="Lùmina" />
-    
+
     <!-- Critical Preconnects (max 3) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- DNS Prefetch for non-critical resources -->
-    <link rel="dns-prefetch" href="https://www.youtube.com">
-    <link rel="dns-prefetch" href="https://cdn.utmify.com.br">
-    <link rel="dns-prefetch" href="https://tracking.utmify.com.br">
-    <link rel="dns-prefetch" href="https://assets.mycartpanda.com">
-    
+
     <!-- Preload critical font -->
     <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v37/nuFiD-vYSZviVYUb_rj3ij__anPXDTnCjmHKM4nYO7KN_pWvT5Fg.woff2" as="font" type="font/woff2" crossorigin>
-    
-    <!-- Google Fonts with display=swap -->
+
+    <!-- Google Fonts with swap (non-blocking) -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
-    
-    <!-- Inline Critical CSS -->
+
+    <!-- Inline Critical CSS (minified) -->
     <style>
       *,::after,::before{box-sizing:border-box;border:0 solid}
       html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif}
@@ -62,9 +56,30 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Lùmina 7 - Ritual de Alineación Interior" />
     <meta name="twitter:description" content="Revela la geometría interna de tu estado en solo 7 minutos." />
-    
+
     <!-- Canonical -->
     <link rel="canonical" href="https://rituallumina7.com" />
+
+    <!-- --- PIXEL: load EARLY but non-blocking for render-critical resources --- -->
+    <!-- Set pixel id immediately, then inject pixel script synchronously before app module. -->
+    <script>
+      // Expose pixel id as early as possible so any subsequent tracker can read it.
+      window.pixelId = '6934bda660f2cccac58fb53b';
+      // Immediate injector: insert script without requestIdleCallback to avoid missing initial events.
+      (function(){
+        try{
+          var s = document.createElement('script');
+          s.src = 'https://cdn.utmify.com.br/scripts/pixel/pixel.js';
+          // Keep execution predictable: do NOT set async (default false) so script runs as soon as it's fetched
+          // but adding charset & crossorigin if required by provider
+          s.defer = false;
+          s.crossOrigin = 'anonymous';
+          var parent = document.head || document.getElementsByTagName('head')[0] || document.documentElement;
+          parent.appendChild(s);
+        }catch(e){console.error('pixel injector', e)}
+      })();
+    </script>
+
   </head>
 
   <body>
@@ -76,42 +91,88 @@
         </div>
       </div>
     </div>
-    
+
+    <!-- App entry (module scripts are deferred by spec) -->
     <script type="module" src="/src/main.tsx"></script>
-    
-    <!-- Deferred third-party scripts -->
+
+    <!-- Third-party non-critical scripts: load async at end of body, no idle callback gating -->
     <script>
       (function(){
-        var l=0;
-        function t(){
-          if(l)return;l=1;
-          var u=document.createElement("script");
-          u.src="https://cdn.utmify.com.br/scripts/utms/latest.js";
-          u.async=1;
-          u.setAttribute("data-utmify-prevent-xcod-sck","");
-          u.setAttribute("data-utmify-prevent-subids","");
-          u.setAttribute("data-utmify-ignore-iframe","");
-          u.setAttribute("data-utmify-is-cartpanda","");
-          document.body.appendChild(u);
-          var c=document.createElement("script");
-          c.src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/cpsales.js";
-          c.async=1;
-          document.body.appendChild(c);
-        }
-        function p(){
-          window.pixelId="6934bda660f2cccac58fb53b";
-          var s=document.createElement("script");
-          s.src="https://cdn.utmify.com.br/scripts/pixel/pixel.js";
-          s.async=1;
-          document.head.appendChild(s);
-        }
-        if('requestIdleCallback'in window){requestIdleCallback(p,{timeout:2000})}
-        else{setTimeout(p,100)}
-        ['scroll','click','touchstart'].forEach(function(e){
-          window.addEventListener(e,t,{once:1,passive:1})
+        // UTMify loader: non-blocking, but starts as soon as possible after main parsing
+        var ut = document.createElement('script');
+        ut.src = 'https://cdn.utmify.com.br/scripts/utms/latest.js';
+        ut.async = true;
+        ut.setAttribute('data-utmify-prevent-xcod-sck','');
+        ut.setAttribute('data-utmify-prevent-subids','');
+        ut.setAttribute('data-utmify-ignore-iframe','');
+        document.body.appendChild(ut);
+
+        var cps = document.createElement('script');
+        cps.src = 'https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/cpsales.js';
+        cps.async = true;
+        document.body.appendChild(cps);
+
+        // Pixel helper for backwards compatibility: ensure window.pixelReady resolves when pixel global exists
+        window.pixelReady = new Promise(function(resolve){
+          if(window.__utmify && typeof window.__utmify.init === 'function') return resolve(window.__utmify);
+          var t = setInterval(function(){
+            if(window.__utmify && typeof window.__utmify.init === 'function'){
+              clearInterval(t);
+              resolve(window.__utmify);
+            }
+          }, 50);
+          // safety timeout
+          setTimeout(function(){ clearInterval(t); resolve(null); }, 5000);
         });
-        setTimeout(t,4000);
       })();
     </script>
+
+    <!-- Performance observers: collect LCP / CLS and log (console + beacon) -->
+    <script>
+      (function(){
+        // Send results to console and, if present, to analytics endpoint using sendBeacon.
+        var perfData = { lcp: null, cls: 0 };
+
+        // LCP
+        try{
+          var poLCP = new PerformanceObserver(function(list){
+            var entries = list.getEntries();
+            var last = entries[entries.length - 1];
+            if(last) perfData.lcp = last.renderTime || last.startTime;
+          });
+          poLCP.observe({type: 'largest-contentful-paint', buffered: true});
+        }catch(e){}
+
+        // CLS
+        try{
+          var clsValue = 0;
+          var poCLS = new PerformanceObserver(function(list){
+            for(var entry of list.getEntries()){
+              if(!entry) continue;
+              if(entry.hadRecentInput) continue;
+              clsValue += entry.value;
+            }
+            perfData.cls = clsValue;
+          });
+          poCLS.observe({type: 'layout-shift', buffered: true});
+        }catch(e){}
+
+        // Flush on pagehide (best-effort) or after 10s
+        function flush(){
+          try{
+            console.info('Performance metrics', perfData);
+            var payload = JSON.stringify(Object.assign({url: location.href, ts: Date.now()}, perfData));
+            if(navigator.sendBeacon){
+              navigator.sendBeacon('/__client-metrics', payload);
+            }else{
+              fetch('/__client-metrics', {method:'POST',body:payload,keepalive:true,headers:{'Content-Type':'application/json'}}).catch(()=>{});
+            }
+          }catch(e){}
+        }
+        addEventListener('pagehide', flush, {passive:true});
+        setTimeout(flush, 10000);
+      })();
+    </script>
+
   </body>
 </html>
