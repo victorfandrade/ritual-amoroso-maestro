@@ -79,39 +79,27 @@
     
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- Deferred third-party scripts -->
+    <!-- UTMify Scripts - Loaded immediately for tracking -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      data-utmify-ignore-iframe
+      data-utmify-is-cartpanda
+      async
+      defer
+    ></script>
+    
     <script>
-      (function(){
-        var l=0;
-        function t(){
-          if(l)return;l=1;
-          var u=document.createElement("script");
-          u.src="https://cdn.utmify.com.br/scripts/utms/latest.js";
-          u.async=1;
-          u.setAttribute("data-utmify-prevent-xcod-sck","");
-          u.setAttribute("data-utmify-prevent-subids","");
-          u.setAttribute("data-utmify-ignore-iframe","");
-          u.setAttribute("data-utmify-is-cartpanda","");
-          document.body.appendChild(u);
-          var c=document.createElement("script");
-          c.src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/cpsales.js";
-          c.async=1;
-          document.body.appendChild(c);
-        }
-        function p(){
-          window.pixelId="6934bda660f2cccac58fb53b";
-          var s=document.createElement("script");
-          s.src="https://cdn.utmify.com.br/scripts/pixel/pixel.js";
-          s.async=1;
-          document.head.appendChild(s);
-        }
-        if('requestIdleCallback'in window){requestIdleCallback(p,{timeout:2000})}
-        else{setTimeout(p,100)}
-        ['scroll','click','touchstart'].forEach(function(e){
-          window.addEventListener(e,t,{once:1,passive:1})
-        });
-        setTimeout(t,4000);
-      })();
+      window.pixelId = "6934bda660f2cccac58fb53b";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
     </script>
+    
+    <!-- CartPanda - Deferred -->
+    <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/cpsales.js" async defer></script>
   </body>
 </html>
