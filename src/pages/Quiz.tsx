@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback, memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -55,7 +55,33 @@ const questions = [
       "Caída vibracional en tu conexión con alguien",
     ],
   },
-];
+] as const;
+
+const OptionButton = memo(({ option, isSelected, onSelect }: { option: string; isSelected: boolean; onSelect: () => void }) => (
+  <button
+    type="button"
+    onClick={onSelect}
+    className={`w-full p-3 sm:p-4 text-left rounded-lg sm:rounded-xl border-2 transition-all duration-300 ${
+      isSelected
+        ? "border-primary bg-primary/10 mystical-glow shadow-lg scale-[1.02]"
+        : "border-border hover:border-primary/50 hover:bg-muted/50"
+    }`}
+  >
+    <div className="flex items-start gap-2.5 sm:gap-3">
+      <div
+        className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5 rounded-full border-2 flex items-center justify-center transition-all ${
+          isSelected ? "border-primary bg-primary" : "border-muted-foreground"
+        }`}
+        aria-hidden="true"
+      >
+        {isSelected && <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary-foreground" />}
+      </div>
+      <span className="text-sm sm:text-base leading-relaxed break-words flex-1">{option}</span>
+    </div>
+  </button>
+));
+
+OptionButton.displayName = "OptionButton";
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -63,50 +89,43 @@ const Quiz = () => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const navigate = useNavigate();
 
-  const handleOptionSelect = (option: string) => {
+  const handleOptionSelect = useCallback((option: string) => {
     setSelectedOption(option);
-  };
+  }, []);
 
-  const handleNext = () => {
-    if (selectedOption) {
-      const newAnswers = [...answers, selectedOption];
-      setAnswers(newAnswers);
+  const handleNext = useCallback(() => {
+    if (!selectedOption) return;
+    
+    const newAnswers = [...answers, selectedOption];
+    setAnswers(newAnswers);
 
-      if (currentQuestion < questions.length - 1) {
-        setCurrentQuestion(currentQuestion + 1);
-        setSelectedOption(null);
-      } else {
-        navigate("/loading");
-      }
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(prev => prev + 1);
+      setSelectedOption(null);
+    } else {
+      navigate("/loading");
     }
-  };
+  }, [selectedOption, answers, currentQuestion, navigate]);
 
   const progress = ((currentQuestion + 1) / questions.length) * 100;
+  const question = questions[currentQuestion];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-muted/30 to-background flex items-center justify-center px-3 py-6 sm:p-4 relative overflow-hidden">
-      {/* Mystical background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <main className="min-h-screen bg-gradient-to-b from-background via-muted/30 to-background flex items-center justify-center px-3 py-6 sm:p-4 relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute top-20 left-10 w-48 h-48 sm:w-64 sm:h-64 bg-primary/10 rounded-full blur-3xl floating" />
         <div className="absolute bottom-20 right-10 w-64 h-64 sm:w-96 sm:h-96 bg-accent/10 rounded-full blur-3xl floating" style={{ animationDelay: '1s' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-mystical-glow/5 rounded-full blur-3xl" />
       </div>
 
       <div className="w-full max-w-2xl relative z-10">
-        {/* Header */}
-        <div className="text-center mb-6 sm:mb-8 fade-in-up">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-gradient">
-            Lùmina-7
-          </h1>
-        </div>
+        <header className="text-center mb-6 sm:mb-8 fade-in-up">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-gradient">Lùmina-7</h1>
+        </header>
 
-        {/* Progress bar */}
-        <div className="mb-4 sm:mb-6 md:mb-8 fade-in-up">
+        <div className="mb-4 sm:mb-6 md:mb-8 fade-in-up" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
           <div className="h-2 bg-muted rounded-full overflow-hidden mystical-glow">
-            <div
-              className="h-full gradient-mystical transition-all duration-500 ease-out"
-              style={{ width: `${progress}%` }}
-            />
+            <div className="h-full gradient-mystical transition-all duration-500 ease-out" style={{ width: `${progress}%` }} />
           </div>
           <p className="text-xs sm:text-sm text-muted-foreground text-center mt-2">
             Pregunta {currentQuestion + 1} de {questions.length}
@@ -115,39 +134,21 @@ const Quiz = () => {
 
         <Card className="p-4 sm:p-6 md:p-8 mystical-glow backdrop-blur-sm bg-card/95 border-primary/20 fade-in-up">
           <div className="flex items-center justify-center mb-4 sm:mb-6">
-            <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-accent floating" />
+            <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-accent floating" aria-hidden="true" />
           </div>
 
           <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif text-center mb-4 sm:mb-6 md:mb-8 text-foreground leading-relaxed">
-            {questions[currentQuestion].question}
+            {question.question}
           </h2>
 
-          <div className="space-y-2.5 sm:space-y-3">
-            {questions[currentQuestion].options.map((option, index) => (
-              <button
+          <div className="space-y-2.5 sm:space-y-3" role="radiogroup">
+            {question.options.map((option, index) => (
+              <OptionButton
                 key={index}
-                onClick={() => handleOptionSelect(option)}
-                className={`w-full p-3 sm:p-4 text-left rounded-lg sm:rounded-xl border-2 transition-all duration-300 ${
-                  selectedOption === option
-                    ? "border-primary bg-primary/10 mystical-glow shadow-lg scale-[1.02]"
-                    : "border-border hover:border-primary/50 hover:bg-muted/50"
-                }`}
-              >
-                <div className="flex items-start gap-2.5 sm:gap-3">
-                  <div
-                    className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5 rounded-full border-2 flex items-center justify-center transition-all ${
-                      selectedOption === option
-                        ? "border-primary bg-primary"
-                        : "border-muted-foreground"
-                    }`}
-                  >
-                    {selectedOption === option && (
-                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary-foreground" />
-                    )}
-                  </div>
-                  <span className="text-sm sm:text-base leading-relaxed break-words flex-1">{option}</span>
-                </div>
-              </button>
+                option={option}
+                isSelected={selectedOption === option}
+                onSelect={() => handleOptionSelect(option)}
+              />
             ))}
           </div>
 
@@ -160,11 +161,10 @@ const Quiz = () => {
           </Button>
         </Card>
 
-        {/* Decorative mystical elements */}
-        <div className="hidden sm:block absolute -top-4 -right-4 w-20 h-20 md:w-24 md:h-24 border-2 border-primary/20 rounded-full floating" style={{ animationDelay: '0.5s' }} />
-        <div className="hidden sm:block absolute -bottom-4 -left-4 w-24 h-24 md:w-32 md:h-32 border border-accent/20 rounded-full floating" style={{ animationDelay: '1.5s' }} />
+        <div className="hidden sm:block absolute -top-4 -right-4 w-20 h-20 md:w-24 md:h-24 border-2 border-primary/20 rounded-full floating" aria-hidden="true" style={{ animationDelay: '0.5s' }} />
+        <div className="hidden sm:block absolute -bottom-4 -left-4 w-24 h-24 md:w-32 md:h-32 border border-accent/20 rounded-full floating" aria-hidden="true" style={{ animationDelay: '1.5s' }} />
       </div>
-    </div>
+    </main>
   );
 };
 
