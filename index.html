@@ -6,29 +6,25 @@
     <title>Lùmina 7 - Ritual de Alineación Interior</title>
     <meta name="description" content="Revela la geometría interna de tu estado en solo 7 minutos. Descubre tu símbolo único y activa el movimiento interno." />
     <meta name="author" content="Lùmina" />
-
-    <!-- Critical Preconnects -->
+    
+    <!-- Critical Preconnects (max 3) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- DNS Prefetch -->
+    
+    <!-- DNS Prefetch for non-critical resources -->
     <link rel="dns-prefetch" href="https://www.youtube.com">
     <link rel="dns-prefetch" href="https://cdn.utmify.com.br">
     <link rel="dns-prefetch" href="https://tracking.utmify.com.br">
     <link rel="dns-prefetch" href="https://assets.mycartpanda.com">
-
-    <!-- Preload Font -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v37/nuFiD-vYSZviVYUb_rj3ij__anPXDTnCjmHKM4nYO7KN_pWvT5Fg.woff2" 
-      as="font" type="font/woff2" crossorigin>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    </noscript>
-
-    <!-- Critical CSS -->
+    
+    <!-- Preload critical font -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v37/nuFiD-vYSZviVYUb_rj3ij__anPXDTnCjmHKM4nYO7KN_pWvT5Fg.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Google Fonts with display=swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Inline Critical CSS -->
     <style>
       *,::after,::before{box-sizing:border-box;border:0 solid}
       html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif}
@@ -47,6 +43,9 @@
       .bg-gradient-to-b{background-image:linear-gradient(to bottom,var(--tw-gradient-stops))}
       .from-background{--tw-gradient-from:hsl(280 60% 98%);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}
       .to-background{--tw-gradient-to:hsl(280 60% 98%)}
+      .gradient-mystical{background:linear-gradient(135deg,hsl(275 60% 55%),hsl(295 70% 65%))}
+      .mystical-glow{box-shadow:0 0 30px hsl(275 80% 70% / 0.3)}
+      .mystical-glow-intense{box-shadow:0 0 50px hsl(295 70% 65% / 0.5)}
       .text-gradient{background-image:linear-gradient(to right,hsl(275 60% 45%),hsl(295 70% 65%),hsl(275 60% 45%));-webkit-background-clip:text;background-clip:text;color:transparent}
       .font-serif{font-family:'Playfair Display',ui-serif,serif}
       @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
@@ -63,83 +62,56 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Lùmina 7 - Ritual de Alineación Interior" />
     <meta name="twitter:description" content="Revela la geometría interna de tu estado en solo 7 minutos." />
-
+    
+    <!-- Canonical -->
     <link rel="canonical" href="https://rituallumina7.com" />
-
-    <!-- PIXEL UTMIFY — carregamento imediato -->
-    <script>
-      window.pixelId = "6934bda660f2cccac58fb53b";
-      (function(){
-        var s = document.createElement("script");
-        s.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
-        s.async = true;
-        s.defer = true;
-        document.head.appendChild(s);
-      })();
-    </script>
-
-    <!-- CORE UTMIFY — carregado quando o usuário interage ou após 3s -->
-    <script>
-      (function(){
-        let loaded = false;
-
-        function loadUTM(){
-          if (loaded) return;
-          loaded = true;
-
-          const u = document.createElement("script");
-          u.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
-          u.async = true;
-          u.defer = true;
-          u.setAttribute("data-utmify-prevent-xcod-sck", "");
-          u.setAttribute("data-utmify-prevent-subids", "");
-          u.setAttribute("data-utmify-ignore-iframe", "");
-          u.setAttribute("data-utmify-is-cartpanda", "");
-          document.body.appendChild(u);
-        }
-
-        // Carregamento por interação
-        ["scroll","click","touchstart","mousemove","keydown"].forEach(evt=>{
-          window.addEventListener(evt, loadUTM, { once:true, passive:true });
-        });
-
-        // Fallback após 3s
-        setTimeout(loadUTM, 3000);
-      })();
-    </script>
-
   </head>
 
   <body>
+    <!-- Critical content for LCP -->
     <div id="root">
       <div class="min-h-screen bg-gradient-to-b from-background to-background relative overflow-hidden flex items-center justify-center">
         <div class="text-center fade-in-up">
-          <h1 class="text-4xl font-serif text-gradient" style="font-size:2.25rem;line-height:2.5rem">
-            Revela La Geometría Interna De Tu Estado En Solo 7 Minutos.
-          </h1>
+          <h1 class="text-4xl font-serif text-gradient" style="font-size:2.25rem;line-height:2.5rem">Revela La Geometría Interna De Tu Estado En Solo 7 Minutos.</h1>
         </div>
       </div>
     </div>
-
-    <!-- Vite entry -->
+    
     <script type="module" src="/src/main.tsx"></script>
-
-    <!-- CartPanda sales (adiado para performance) -->
+    
+    <!-- Deferred third-party scripts -->
     <script>
       (function(){
-        let l = false;
-        function loadCPS(){
-          if (l) return;
-          l = true;
-          const c = document.createElement("script");
-          c.src = "https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/cpsales.js";
-          c.async = true;
+        var l=0;
+        function t(){
+          if(l)return;l=1;
+          var u=document.createElement("script");
+          u.src="https://cdn.utmify.com.br/scripts/utms/latest.js";
+          u.async=1;
+          u.setAttribute("data-utmify-prevent-xcod-sck","");
+          u.setAttribute("data-utmify-prevent-subids","");
+          u.setAttribute("data-utmify-ignore-iframe","");
+          u.setAttribute("data-utmify-is-cartpanda","");
+          document.body.appendChild(u);
+          var c=document.createElement("script");
+          c.src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/cpsales.js";
+          c.async=1;
           document.body.appendChild(c);
         }
-        window.addEventListener("scroll", loadCPS, { once:true, passive:true });
-        setTimeout(loadCPS, 4000);
+        function p(){
+          window.pixelId="6934bda660f2cccac58fb53b";
+          var s=document.createElement("script");
+          s.src="https://cdn.utmify.com.br/scripts/pixel/pixel.js";
+          s.async=1;
+          document.head.appendChild(s);
+        }
+        if('requestIdleCallback'in window){requestIdleCallback(p,{timeout:2000})}
+        else{setTimeout(p,100)}
+        ['scroll','click','touchstart'].forEach(function(e){
+          window.addEventListener(e,t,{once:1,passive:1})
+        });
+        setTimeout(t,4000);
       })();
     </script>
-
   </body>
 </html>
