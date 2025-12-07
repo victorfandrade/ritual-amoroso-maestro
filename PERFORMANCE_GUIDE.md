@@ -3,33 +3,38 @@
 ## Otimizações Implementadas
 
 ### 1. HTML/Head
-- **3 preconnects críticos** (máximo recomendado):
+- **2 preconnects críticos** (fontes apenas):
   - `fonts.googleapis.com`
   - `fonts.gstatic.com`
-  - `www.youtube.com`
 - **DNS-prefetch** para recursos secundários:
-  - `cdn.utmify.com.br`, `tracking.utmify.com.br`
-  - `assets.mycartpanda.com`, `i.ytimg.com`
-- CSS crítico inline para First Paint
+  - `www.youtube.com`, `cdn.utmify.com.br`, `tracking.utmify.com.br`, `assets.mycartpanda.com`
+- **Preload da fonte principal** (Playfair Display woff2)
+- **Google Fonts com media="print" + onload** para não bloquear renderização
+- CSS crítico inline no `<head>` para First Paint imediato
+- Conteúdo pré-renderizado no `#root` para LCP
 
-### 2. Fontes
-- Google Fonts com `display=swap`
-- Pesos otimizados: Playfair (400,600,700) + Inter (400,500,600)
+### 2. React Otimizado
+- **Lazy loading** de todas as páginas exceto Index (rota principal)
+- **React.memo** em componentes decorativos (MysticalBackground, DecorativeElements, PageHeader)
+- **Suspense** com fallback mínimo
+- **QueryClient** com cache otimizado
 
-### 3. Scripts de Terceiros
-- UTMify Pixel via `requestIdleCallback`
+### 3. CSS Performance
+- **contain: layout paint style** em elementos animados
+- **transform: translate3d()** para GPU acceleration
+- **Sem will-change** desnecessário
+- Design system compacto via CSS variables
+
+### 4. Scripts de Terceiros
+- UTMify Pixel via `requestIdleCallback` com timeout de 2s
 - UTMify Tracking + CartPanda carregados após interação do usuário
-- Fallback de 3s para garantir carregamento
-- Todos com `async` + `defer`
+- Fallback de 4s para garantir carregamento
+- Todos com `async` apenas (sem defer para não bloquear)
 
-### 4. YouTube Embeds
-- `loading="lazy"` em todos iframes
-- `referrerPolicy="strict-origin-when-cross-origin"` (resolve erro 153)
-- Parâmetros: `?enablejsapi=1&rel=0&modestbranding=1`
-
-### 5. CSS/Animações
-- `will-change` em animações frequentes
-- Design system via variáveis CSS
+### 5. Semantic HTML
+- Tags semânticas: `<main>`, `<header>`, `<section>`, `<article>`, `<blockquote>`, `<cite>`
+- `aria-hidden="true"` em elementos decorativos
+- `aria-label` em seções importantes
 
 ---
 
@@ -48,8 +53,8 @@ server {
     # Gzip
     gzip on;
     gzip_vary on;
-    gzip_min_length 1024;
-    gzip_types text/plain text/css text/javascript application/javascript application/json image/svg+xml;
+    gzip_min_length 256;
+    gzip_types text/plain text/css text/javascript application/javascript application/json image/svg+xml font/woff2;
 
     # Cache 1 ano
     location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2)$ {
@@ -63,9 +68,6 @@ server {
     }
 }
 ```
-
-### Apache
-Arquivo `public/.htaccess` já configurado com GZIP e cache.
 
 ---
 
@@ -82,17 +84,24 @@ npm run build
 
 | Métrica | Alvo |
 |---------|------|
-| LCP | < 1.5s |
-| FCP | < 1.0s |
-| CLS | < 0.1 |
+| LCP | < 1.0s |
+| FCP | < 0.8s |
+| CLS | < 0.05 |
 | TTFB | < 200ms |
+| TBT | < 100ms |
+| Speed Index | < 1.5s |
 
 ---
 
-## Troubleshooting
+## Checklist Final
 
-### Erro 153 YouTube
-Já corrigido com `referrerPolicy="strict-origin-when-cross-origin"`.
-
-### PageSpeed não carrega preview
-URLs de preview podem ser bloqueadas. Teste após deploy no domínio final.
+- [x] Preload fonte crítica
+- [x] Google Fonts não bloqueia renderização
+- [x] CSS crítico inline
+- [x] Conteúdo LCP pré-renderizado
+- [x] Lazy loading de rotas
+- [x] memo() em componentes decorativos
+- [x] GPU acceleration nas animações
+- [x] contain: CSS para isolamento
+- [x] Scripts terceiros deferidos
+- [x] Semantic HTML

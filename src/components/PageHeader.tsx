@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Sparkles, Star } from "lucide-react";
 
 interface PageHeaderProps {
@@ -5,10 +6,10 @@ interface PageHeaderProps {
   subtitle?: string;
 }
 
-const PageHeader = ({ title, subtitle }: PageHeaderProps) => {
+const PageHeader = memo(({ title, subtitle }: PageHeaderProps) => {
   return (
-    <div className="text-center mb-12 fade-in-up">
-      <div className="flex items-center justify-center gap-2 mb-4">
+    <header className="text-center mb-12 fade-in-up">
+      <div className="flex items-center justify-center gap-2 mb-4" aria-hidden="true">
         <Sparkles className="w-6 h-6 text-accent floating" />
         <Star className="w-8 h-8 text-primary floating" style={{ animationDelay: '0.5s' }} />
         <Sparkles className="w-6 h-6 text-accent floating" style={{ animationDelay: '1s' }} />
@@ -21,8 +22,10 @@ const PageHeader = ({ title, subtitle }: PageHeaderProps) => {
           {subtitle}
         </p>
       )}
-    </div>
+    </header>
   );
-};
+});
+
+PageHeader.displayName = 'PageHeader';
 
 export default PageHeader;

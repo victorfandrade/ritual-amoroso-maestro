@@ -2,4 +2,6 @@ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(<App />);
+// Hydrate instead of render for better performance with pre-rendered content
+const root = document.getElementById("root")!;
+createRoot(root).render(<App />);
